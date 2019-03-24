@@ -13,6 +13,11 @@ module U()
         rotate([90, 0, 0])  translate([50, 0, 170]) cylinder(10,10,10,$fn=100);
         rotate([90, 0, 0])  translate([-50, 0, 170]) cylinder(10,10,10,$fn=100);
     }
+    
+    difference() {
+
+}
+    cube([15,5,10],false);
 }
 
 
