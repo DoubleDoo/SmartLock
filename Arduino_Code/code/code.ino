@@ -77,7 +77,54 @@ class page
   }
 };
 
+class Node
+{
+  page* parent;
+  page* this_page;
+  page* childes;
+  int pointer;
 
+  
+  public:
+  Node(page* _page, page* _childes)
+  {
+    this_page=_page;
+    parent=nullptr;
+    childes=_childes;
+    pointer=0;
+  }
+  
+  Node(page* _page,page* _parent,page* _childes)
+  {
+    this_page=_page;
+    parent=_parent;
+    childes=childes;
+    pointer=0;
+  }
+
+  page swith_on_child()
+  {
+    return childes[pointer];
+  }
+
+  page swith_on_parent()
+  {
+    return parent;
+  }
+
+  page* next_child()
+  {
+    //if (pointer<childes)
+    //pointer++;
+    //return 
+  }
+
+  page* previous_child()
+  {
+    
+  }
+  
+};
 
 
 
