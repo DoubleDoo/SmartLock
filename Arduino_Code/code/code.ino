@@ -79,49 +79,65 @@ class page
 
 class Node
 {
-  page* parent;
+  public:
+  Node* parent;
   page* this_page;
-  page* childes;
+  Node* childes;
   int pointer;
 
   
   public:
-  Node(page* _page, page* _childes)
+  Node(page* _page)
   {
     this_page=_page;
     parent=nullptr;
-    childes=_childes;
+    childes=nullptr;
     pointer=0;
   }
   
-  Node(page* _page,page* _parent,page* _childes)
+  Node(page* _page, Node* _parent)
+  {
+    this_page=_page;
+    parent=_parent;
+    childes=nullptr;
+    pointer=0;
+  }
+  
+  Node(page* _page,Node* _parent,Node* _childes)
   {
     this_page=_page;
     parent=_parent;
     childes=childes;
     pointer=0;
   }
-
-  page swith_on_child()
+  
+  void add_childs(Node* childs)
+  {
+    childes=childs;
+  }
+  
+  Node swith_on_child()
   {
     return childes[pointer];
   }
 
-  page swith_on_parent()
+  Node swith_on_parent()
   {
-    return parent;
+    return *parent;
   }
 
-  page* next_child()
+  page next_child()
   {
-    //if (pointer<childes)
-    //pointer++;
-    //return 
+    if (pointer<sizeof(*childes) / sizeof(page))
+    pointer++;
+    return childes[pointer].this_page;
   }
 
-  page* previous_child()
+  page previous_child()
   {
-    
+    if (pointer!=0)
+    pointer--;
+    return childes[pointer].this_page;
   }
   
 };
@@ -472,16 +488,40 @@ void setup() {
     testanimate(batary0,8,32,96,0); 
     testanimate(Net0,8,16,80,0); 
     */
-    page pg(3);
-    pg.add_object(Net2,8,0,8,16);
-    pg.add_object(batary3,20,20,8,32);
-    pg.add_object(lt,80,40,16,8);
-  //  pg.add_object(Net0,50,50,8,16);
-  //  pg.add_object(Net0,50,50,8,16);
-   pg.show_page(display);
-   //display.drawBitmap(80,80,Net0,16,8, WHITE);
+    page pg0(3);
+    pg0.add_object(Net2,8,0,8,16);
+    pg0.add_object(batary3,20,20,8,32);
+    pg0.add_object(lt,80,40,16,8);
+    page pg01(2);
+    pg01.add_object(batary3,21,21,8,32);
+    pg01.add_object(lt,81,41,16,8);
+    page pg02(2);
+    pg02.add_object(Net2,15,5,8,16);
+    pg02.add_object(lt,85,45,16,8);
+    page pg021(2);
+    pg021.add_object(Net2,20,20,8,16);
+    pg021.add_object(batary3,30,30,8,32);
 
-      delay(2000);
+    Node nd0(&pg0);
+    Node nd01=Node(&pg01,&nd0);
+    Node nd02=Node(&pg02,&nd0);
+    Node nd021=Node(&pg021,&nd02);
+    Node mas[]={nd01,nd02};
+    nd0.add_childs(mas);
+    Node mass[]={nd021};
+    nd02.add_childs(mass);
+
+    Node cur=nd0;
+    cur.next_child();
+    cur.next_child();
+    cur.next_child();
+    cur=cur.swith_on_child();
+    cur.next_child();
+    cur.previous_child();
+    cur.swith_on_parent();
+    (*cur.this_page).show_page(display);
+    //pg0.show_page(display);
+    delay(1000);
     display.display();
 
 }
