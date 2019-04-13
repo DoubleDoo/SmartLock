@@ -3,6 +3,7 @@
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
 #include <SoftwareSerial.h>
+
  
 #define SCREEN_WIDTH 128 // OLED display width, in pixels
 #define SCREEN_HEIGHT 64 // OLED display height, in pixels
@@ -12,6 +13,9 @@ SoftwareSerial SIM800(8, 9);
 #define XPOS   0 // Indexes into the 'icons' array in function below
 #define YPOS   1
 #define DELTAY 2
+
+  
+
 const int left = A0;
 const int right = A1;
 int count=1;
@@ -19,6 +23,127 @@ int state=0;
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
  #define LOGO_HEIGHT   32
 #define LOGO_WIDTH    32
+
+class page
+{
+  protected:
+  int* object_x;
+  int* object_y;
+  int* object_length;
+  int* object_height;
+  const uint8_t** objects;
+  int pointer;
+  int objects_count;
+
+ 
+  public:
+  page(int _objects_count)
+  {
+
+    objects_count=_objects_count;
+    objects=new unsigned char*[objects_count];
+    object_x=new int[objects_count];
+    object_y=new int[objects_count];
+    object_height=new int[objects_count];
+    object_length=new int[objects_count];
+    pointer=0;
+  }
+
+  
+  add_object(const uint8_t *bitmap,int x,int y,int hght,int lnght)
+  {
+    if(pointer<objects_count)
+    {
+      object_x[pointer]=x;
+      object_y[pointer]=y;
+      object_height[pointer]=hght;
+      object_length[pointer]=lnght;    
+      objects[pointer]=bitmap;
+      pointer++;
+
+    }
+    else
+    {
+      Serial.println("!");
+    }
+  }
+
+  show_page(Adafruit_SSD1306 display)
+  {
+    for (int i=0; i < objects_count ; i++)
+    {
+       display.drawBitmap(object_x[i], object_y[i], objects[i],object_length[i], object_height[i], WHITE);
+    }
+  }
+};
+
+class Node
+{
+  public:
+  Node* parent;
+  page* this_page;
+  Node* childes;
+  int pointer;
+
+  
+  public:
+  Node(page* _page)
+  {
+    this_page=_page;
+    parent=nullptr;
+    childes=nullptr;
+    pointer=0;
+  }
+  
+  Node(page* _page, Node* _parent)
+  {
+    this_page=_page;
+    parent=_parent;
+    childes=nullptr;
+    pointer=0;
+  }
+  
+  Node(page* _page,Node* _parent,Node* _childes)
+  {
+    this_page=_page;
+    parent=_parent;
+    childes=childes;
+    pointer=0;
+  }
+  
+  void add_childs(Node* childs)
+  {
+    childes=childs;
+  }
+  
+  Node swith_on_child()
+  {
+    return childes[pointer];
+  }
+
+  Node swith_on_parent()
+  {
+    return *parent;
+  }
+
+  page next_child()
+  {
+    if (pointer<sizeof(*childes) / sizeof(page))
+    pointer++;
+    return childes[pointer].this_page;
+  }
+
+  page previous_child()
+  {
+    if (pointer!=0)
+    pointer--;
+    return childes[pointer].this_page;
+  }
+  
+};
+
+
+
 static const unsigned char PROGMEM gear[] =
 { B00000000, B00000001,B10000000, B00000000,
   B00000000, B00000011,B11000000, B00000000,
@@ -363,11 +488,47 @@ void setup() {
     testanimate(batary0,8,32,96,0); 
     testanimate(Net0,8,16,80,0); 
     */
+    page pg0(3);
+    pg0.add_object(Net2,8,0,8,16);
+    pg0.add_object(batary3,20,20,8,32);
+    pg0.add_object(lt,80,40,16,8);
+    page pg01(2);
+    pg01.add_object(batary3,21,21,8,32);
+    pg01.add_object(lt,81,41,16,8);
+    page pg02(2);
+    pg02.add_object(Net2,15,5,8,16);
+    pg02.add_object(lt,85,45,16,8);
+    page pg021(2);
+    pg021.add_object(Net2,20,20,8,16);
+    pg021.add_object(batary3,30,30,8,32);
+
+    Node nd0(&pg0);
+    Node nd01=Node(&pg01,&nd0);
+    Node nd02=Node(&pg02,&nd0);
+    Node nd021=Node(&pg021,&nd02);
+    Node mas[]={nd01,nd02};
+    nd0.add_childs(mas);
+    Node mass[]={nd021};
+    nd02.add_childs(mass);
+
+    Node cur=nd0;
+    cur.next_child();
+    cur.next_child();
+    cur.next_child();
+    cur=cur.swith_on_child();
+    cur.next_child();
+    cur.previous_child();
+    cur.swith_on_parent();
+    (*cur.this_page).show_page(display);
+    //pg0.show_page(display);
+    delay(1000);
     display.display();
 
 }
  
 void loop() {
+
+  /*
 if (state==0)
 {
 buttonscheck();
@@ -386,11 +547,12 @@ else if (state==1)
 
 void testanimate(const uint8_t *bitmap,int w,int h,int x,int y) {
 display.drawBitmap(x, y, bitmap, h, w, WHITE);
+*/
 }
 
 
 
-
+/*
 
 void buttonscheck()
 {
@@ -474,4 +636,4 @@ void checkNet()
     break;
     }
   }
-}
+}*/
