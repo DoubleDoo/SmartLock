@@ -265,6 +265,7 @@ void writenumber(int i){
 
 TWI wire;
 OLED oled(wire);
+
 int num = 1;
 short PINA_last_state=0;
 bool button0=false;
@@ -722,20 +723,64 @@ uint8_t Net0[] =
 	0B11101110, 0B10101110,
 };
 
+class Batary
+{
+private:
+int curlvl;
+public:
+Batary()
+{
+	DDRB=0x00;
+	PORTB=0x0F;	
+	refreshlvl();
+	printlvltoOLEDbufer();
+}
+
+void refreshlvl()
+{
+	int kf=0;
+	if((PINB>>0)&0b00000001==1) kf++;
+	if((PINB>>1)&0b00000001==1) kf++;
+	if((PINB>>2)&0b00000001==1) kf++;
+	if((PINB>>3)&0b00000001==1) kf++;
+	curlvl=kf;
+}
+
+void printlvltoOLEDbufer()
+{
+	if(curlvl==0) oled.OLED_Write_To_Bufer(96,0,4,8,batary5);
+	if(curlvl==1) oled.OLED_Write_To_Bufer(96,0,4,8,batary4);
+	if(curlvl==2) oled.OLED_Write_To_Bufer(96,0,4,8,batary3);
+	if(curlvl==3) oled.OLED_Write_To_Bufer(96,0,4,8,batary2);
+	if(curlvl==4) oled.OLED_Write_To_Bufer(96,0,4,8,batary1);
+}
+
+void refresh()
+{
+	refreshlvl();
+	printlvltoOLEDbufer();
+}
+	
+};
+
+Batary batary;
+
 int main(void){
+	
 		//TWI wire;
 		//OLED oled(wire);
 		//oled.OLED_Write_Bufer();
 		//_delay_ms(1000);
 		//oled.OLED_Write_To_Bufer(0,0,0b11111111);
 		
-		oled.OLED_Write_To_Bufer(0,0,4,32,gear);
-		oled.OLED_Write_To_Bufer(33,0,4,32,lock);
-		oled.OLED_Write_To_Bufer(80,0,4,32,unlock);
-		oled.OLED_Write_To_Bufer(0,5,4,8,batary2);
-		oled.OLED_Write_To_Bufer(40,5,4,8,batary5);
-		oled.OLED_Write_To_Bufer(80,5,2,8,Net0);
-		oled.OLED_Write_To_Bufer(100,5,2,8,Net4);
+		//oled.OLED_Write_To_Bufer(0,0,4,32,gear);
+		//oled.OLED_Write_To_Bufer(33,0,4,32,lock);
+		//oled.OLED_Write_To_Bufer(80,0,4,32,unlock);
+		//oled.OLED_Write_To_Bufer(0,5,4,8,batary2);
+		//oled.OLED_Write_To_Bufer(40,5,4,8,batary5);
+		//oled.OLED_Write_To_Bufer(80,5,2,8,Net0);
+		//oled.OLED_Write_To_Bufer(100,5,2,8,Net4);
+		
 		//	oled. OLED_Write_To_Bufer(0,0b11111111);
 		//oled.OLED_Write_Bufer();
 		//oled.oled_bufer[1]=0b11111111;
@@ -749,11 +794,29 @@ int main(void){
 		sei();
 		//
 		//DDRD|=0b10000000;
-		
-		
+		/*
+		DDRB=0x00;
+		PORTB=0x0F;
+		int kf=0;
+				if((PINB>>0)&0b00000001==1)kf++;
+				if((PINB>>1)&0b00000001==1)kf++;
+				if((PINB>>2)&0b00000001==1)kf++;
+				if((PINB>>3)&0b00000001==1)kf++;
+				if(kf==0) oled.OLED_Write_To_Bufer(96,0,4,8,batary5);
+				if(kf==1) oled.OLED_Write_To_Bufer(96,0,4,8,batary4);
+				if(kf==2) oled.OLED_Write_To_Bufer(96,0,4,8,batary3);
+				if(kf==3) oled.OLED_Write_To_Bufer(96,0,4,8,batary2);
+				if(kf==4) oled.OLED_Write_To_Bufer(96,0,4,8,batary1);
+				oled.OLED_Write_Bufer();
+				oled.writenumber(4-kf);
+						oled.writenumber((PINB>>0)&0b00000001);
+		oled.writenumber((PINB>>1)&0b00000001);
+		oled.writenumber((PINB>>2)&0b00000001);
+		oled.writenumber((PINB>>3)&0b00000001);*/
 	while(1)
 	{
-	
+	 batary.refresh();
+	 _delay_ms(1000);
 	}
 }
 
