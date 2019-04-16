@@ -96,13 +96,13 @@ OLED(TWI _wire)
 	OLED_Command(0x22);
 	OLED_Command(0);
 	OLED_Command(7);
-	
-	for(int i=0;i<1024;i++)
-	{
-		oled_bufer[i]=0b00000000;
-	}
+	TWDR=0x40;
+	TWCR=(1<<TWINT)|(1<<TWEN);
+	OLED_Bufer_Clear();
+	OLED_Data(0b00000000);
 	OLED_Write_Bufer();
-	OLED_Data(0b11111111);
+	//OLED_Data(0b00000000);
+	//OLED_Write_Bufer();
 }
 	
 
@@ -128,14 +128,35 @@ void OLED_Data(int data)
 
 void OLED_Write_Bufer()
 {
-	TWDR=0x40;
-	TWCR=(1<<TWINT)|(1<<TWEN);
 	for(int i=0;i<(OLED_HEIGHT/8)*OLED_WIDTH;i++)
 	{
 			OLED_Data(oled_bufer[i]);
 	}
 }
 
+void OLED_Bufer_Clear()
+{
+	for(int i=0;i<(OLED_HEIGHT/8)*OLED_WIDTH;i++)
+	{
+		oled_bufer[i]=0b00000000;
+	}
+}
+
+
+void OLED_Clear_Bufer_part(int x,int y,int width,int height)
+{
+	for(int j=0;j<height;j++)
+	{
+		
+		for(int i=0;i<width;i++)
+		{
+			for(int k=0;k<8;k++)
+			{
+				oled_bufer[(x+i*8+k)+(y+j/8)*OLED_WIDTH]=0b00000000;
+			}
+		}
+	}
+}
 
 void OLED_Write_To_Bufer(int x,int y,int width,int height,uint8_t* img)
 {
@@ -263,6 +284,129 @@ void writenumber(int i){
 
 };
 
+uint8_t zero[]={
+	0b00000000,
+	0b00111100,
+	0b00100100,
+	0b00100100,
+	0b00100100,
+	0b00100100,
+	0b00111100,
+	0b00000000
+};
+
+uint8_t one[]={
+	0b00000000,
+	0b00011000,
+	0b00111000,
+	0b00001000,
+	0b00001000,
+	0b00001000,
+	0b00111100,
+	0b00000000
+};
+
+uint8_t two[]={
+	0b00000000,
+	0b00111100,
+	0b00000100,
+	0b00000100,
+	0b00011000,
+	0b00110000,
+	0b00111100,
+	0b00000000
+};
+
+uint8_t three[]={
+	0b00000000,
+	0b00111100,
+	0b00000100,
+	0b00111100,
+	0b00000100,
+	0b00000100,
+	0b00111100,
+	0b00000000
+};
+
+uint8_t four[]={
+	0b00000000,
+	0b00100100,
+	0b00100100,
+	0b00100100,
+	0b00111100,
+	0b00000100,
+	0b00000100,
+	0b00000000
+};
+
+uint8_t five[]={
+	0b00000000,
+	0b00111100,
+	0b00100000,
+	0b00111100,
+	0b00000100,
+	0b00000100,
+	0b00111100,
+	0b00000000
+};
+
+uint8_t six[]={
+	0b00000000,
+	0b00111100,
+	0b00100000,
+	0b00111100,
+	0b00100100,
+	0b00100100,
+	0b00111100,
+	0b00000000
+};
+
+uint8_t seven[]={
+	0b00000000,
+	0b00111100,
+	0b00000100,
+	0b00001000,
+	0b00010000,
+	0b00100000,
+	0b00100000,
+	0b00000000
+};
+
+uint8_t eight[]={
+	0b00000000,
+	0b00111100,
+	0b00100100,
+	0b00111100,
+	0b00100100,
+	0b00100100,
+	0b00111100,
+	0b00000000
+};
+
+uint8_t nine[]={
+	0b00000000,
+	0b00111100,
+	0b00100100,
+	0b00100100,
+	0b00111100,
+	0b00000100,
+	0b00111100,
+	0b00000000
+
+};
+
+uint8_t none[]={
+	0b00000000,
+	0b00000000,
+	0b00000000,
+	0b00000000,
+	0b00000000,
+	0b00000000,
+	0b00000000,
+	0b00000000
+
+};
+
 TWI wire;
 OLED oled(wire);
 
@@ -284,148 +428,44 @@ ISR(PCINT0_vect)
 //sleep_disable();
 	if(PINA==0b00000100 )
 	{
-		oled.writenumber(0);
-		SMCR|=0b00000000;
+		oled.OLED_Clear_Bufer_part(0,0,1,8);
+		oled.OLED_Write_To_Bufer(0,0,1,8,zero);
+		//SMCR|=0b00000000;
 	}
 	if(PINA==0b00001000)
 	{
-		oled.writenumber(1);
-		SMCR|=0b00000000;
+		oled.OLED_Clear_Bufer_part(0,0,1,8);
+		oled.OLED_Write_To_Bufer(0,0,1,8,one);
+		//SMCR|=0b00000000;
 		
 	}
 	if(PINA==0b00010000)
 	{
-		oled.writenumber(2);
+		oled.OLED_Clear_Bufer_part(0,0,1,8);
+		oled.OLED_Write_To_Bufer(0,0,1,8,two);
 		
-		SMCR|=0b00000001;
+		//SMCR|=0b00000001;
 	}
 	if(PINA==0b00100000)
 	{
-		oled.writenumber(3);
+		oled.OLED_Clear_Bufer_part(0,0,1,8);
+		oled.OLED_Write_To_Bufer(0,0,1,8,three);
 		
-		SMCR|=0b00000001;
+		//SMCR|=0b00000001;
 	}
 		if(PINA==0b00011000)
 		{
-		oled.writenumber(4);	
+			oled.OLED_Clear_Bufer_part(0,0,1,8);
+		oled.OLED_Write_To_Bufer(0,0,1,8,four);	
 		}
 		if(PINA==0b00100100)
 		{
-			oled.writenumber(5);
+			oled.OLED_Clear_Bufer_part(0,0,1,8);
+			oled.OLED_Write_To_Bufer(0,0,1,8,five);
 		}
 	sei();
 
 }
-uint8_t zero[]={
-	0b00000000,
-	0b01111110,
-	0b01000010,
-	0b01000010,
-	0b01000010,
-	0b01000010,
-	0b01111110,
-	0b00000000
-};
-
-uint8_t one[]={
-	0b00000000,
-	0b00011000,
-	0b00111000,
-	0b00001000,
-	0b00001000,
-	0b00001000,
-	0b01111110,
-	0b00000000	
-};
-
-uint8_t two[]={
-	0b00000000,
-	0b01111110,
-	0b00000010,
-	0b00000110,
-	0b00011000,
-	0b00110000,
-	0b01111110,
-	0b00000000
-};
-
-uint8_t three[]={
-	0b00000000,
-	0b01111110,
-	0b00000010,
-	0b01111110,
-	0b00000010,
-	0b00000010,
-	0b01111110,
-	0b00000000
-};
-
-uint8_t four[]={
-	0b00000000,
-	0b01000010,
-	0b01000010,
-	0b01000010,
-	0b01111110,
-	0b00000010,
-	0b00000010,
-	0b00000000
-};
-
-uint8_t five[]={
-	0b00000000,
-	0b01111110,
-	0b01000000,
-	0b01111110,
-	0b00000010,
-	0b00000010,
-	0b01111110,
-	0b00000000
-};
-
-uint8_t six[]={
-	0b00000000,
-	0b01111110,
-	0b01000000,
-	0b01111110,
-	0b01000010,
-	0b01000010,
-	0b01111110,
-	0b00000000
-};
-
-uint8_t seven[]={
-	0b00000000,
-	0b01111110,
-	0b00000010,
-	0b00001000,
-	0b00010000,
-	0b00100000,
-	0b01000000,
-	0b00000000
-};
-
-uint8_t eight[]={
-	0b00000000,
-	0b01111110,
-	0b01000010,
-	0b01111110,
-	0b01000010,
-	0b01000010,
-	0b01111110,
-	0b00000000
-};
-
-uint8_t nine[]={
-	0b00000000,
-	0b01111110,
-	0b01000010,
-	0b01000010,
-	0b01111110,
-	0b00000010,
-	0b01111110,
-	0b00000000
-
-};
 
 
 
@@ -773,9 +813,9 @@ int main(void){
 		//_delay_ms(1000);
 		//oled.OLED_Write_To_Bufer(0,0,0b11111111);
 		
-		//oled.OLED_Write_To_Bufer(0,0,4,32,gear);
-		//oled.OLED_Write_To_Bufer(33,0,4,32,lock);
-		//oled.OLED_Write_To_Bufer(80,0,4,32,unlock);
+		oled.OLED_Write_To_Bufer(0,2,4,32,gear);
+		oled.OLED_Write_To_Bufer(33,2,4,32,lock);
+		oled.OLED_Write_To_Bufer(80,2,4,32,unlock);
 		//oled.OLED_Write_To_Bufer(0,5,4,8,batary2);
 		//oled.OLED_Write_To_Bufer(40,5,4,8,batary5);
 		//oled.OLED_Write_To_Bufer(80,5,2,8,Net0);
@@ -787,7 +827,7 @@ int main(void){
 		oled.OLED_Write_Bufer();
 		//Interupts
 
-		DDRA = 0x00;
+	DDRA = 0x00;
 		PORTA=0x00;
 		PCMSK0=0b00111100;
 		PCICR|=0b00000001;
@@ -815,8 +855,16 @@ int main(void){
 		oled.writenumber((PINB>>3)&0b00000001);*/
 	while(1)
 	{
+		
 	 batary.refresh();
-	 _delay_ms(1000);
+	 oled.OLED_Write_To_Bufer(80,0,2,8,Net0);
+	// oled.OLED_Write_To_Bufer(1,1,1,8,zero);
+	// oled.OLED_Write_To_Bufer(9,1,1,8,two);
+	// oled.OLED_Write_To_Bufer(17,1,1,8,nine);
+	 oled.OLED_Write_Bufer();
+	 //_delay_ms(1000);
+	 
+	 
 	}
 }
 
