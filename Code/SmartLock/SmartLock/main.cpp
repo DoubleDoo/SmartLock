@@ -11,270 +11,423 @@
 
 TWI wire;
 OLED oled(wire);
-
 bool pss=false;
 
-class password_scene
+
+class Menu_Element
+{
+	protected:
+	int pointer;
+	
+	public:
+	virtual void Default();
+	virtual void refresh();
+	virtual void close();
+	virtual void next();
+	virtual void previous();
+	virtual void choise();
+	virtual void back();
+	virtual void animate();
+	virtual void actions();
+	
+}; 
+#define MAIN_MENU_POINER_COUNT 2
+#define MAIN_MENU_IMG_X 50
+#define MAIN_MENU_IMG_Y 2
+
+class Main_Menu:public Menu_Element
 {
 	protected:
 	int pointer=0;
-	int imgnum=0;
-	int xcoord[5]={12,36,60,84,108};
-	int ycoord=4;
 	public:
-	password_scene()
+	Main_Menu()
 	{
-		if(pss){
-		write_default();
-		variants(xcoord[pointer],ycoord);
-		}
-	}
+		Default();
+		actions();
+	};
 	
-	void write_default()
-	{
-		oled.OLED_Write_To_Bufer(xcoord[0],ycoord+1,1,8,line);
-		oled.OLED_Write_To_Bufer(xcoord[1],ycoord+1,1,8,line);
-		oled.OLED_Write_To_Bufer(xcoord[2],ycoord+1,1,8,line);
-		oled.OLED_Write_To_Bufer(xcoord[3],ycoord+1,1,8,line);
-		oled.OLED_Write_To_Bufer(xcoord[4],ycoord+1,1,8,line);
-		oled.OLED_Write_To_Bufer(xcoord[pointer],ycoord+2,1,8,downn);
-		oled.OLED_Write_To_Bufer(xcoord[pointer],ycoord-1,1,8,upp);
-	}
+    void Default() override
+    {
+		oled.OLED_Write_To_Bufer(MAIN_MENU_IMG_X-20,MAIN_MENU_IMG_Y+1,1,16,lt);
+		oled.OLED_Write_To_Bufer(MAIN_MENU_IMG_X+56,MAIN_MENU_IMG_Y+1,1,16,rt);
+    };
 	
-	void  clear_others()
+    void refresh() override
 	{
-				oled.OLED_Clear_Bufer_part(xcoord[pointer-1],ycoord+2,1,8);
-				oled.OLED_Clear_Bufer_part(xcoord[pointer-1],ycoord-1,1,8);
-	}
+		
+		
+	};
 	
-	void up()
+	void close()override
 	{
-		write_default();
-		imgnum++;
-		if (imgnum>10) imgnum=0;
-		variants(xcoord[pointer],ycoord);
-	}
+		oled.OLED_Bufer_Clear();
+	};
 	
-	void down()
+	void next()override
 	{
-		write_default();
-		imgnum--;
-		if (imgnum<0) imgnum=10;
-		variants(xcoord[pointer],ycoord);
-	}
-	
-	void back()
-	{
-		write_default();
-		pointer--;
-		if(pointer<0)pointer=0;
-		if (pointer>=0)
-		{
-			
-			write_default();
-			variants(xcoord[pointer],ycoord);
-			oled.OLED_Clear_Bufer_part(xcoord[pointer+1],ycoord+2,1,8);
-			oled.OLED_Clear_Bufer_part(xcoord[pointer+1],ycoord-1,1,8);
-		}
-	}
-	
-	void forward()
-	{
-		write_default();
 		pointer++;
-		if(pointer>4)pointer=4;
-		if (pointer<5)
-		{ 
-			write_default();
-			variants(xcoord[pointer],ycoord);
-		}
-		oled.OLED_Clear_Bufer_part(xcoord[pointer-1],ycoord+2,1,8);
-		oled.OLED_Clear_Bufer_part(xcoord[pointer-1],ycoord-1,1,8);
-	}
+		if(pointer>MAIN_MENU_POINER_COUNT) pointer=0;
+		actions();
+	};
 	
-	void variants(int x,int y)
+	void previous()override
 	{
-		switch(imgnum)
+		pointer--;
+		if(pointer<0) pointer=MAIN_MENU_POINER_COUNT;
+		actions();
+	};
+	
+	void choise()override
+	{
+		switch(pointer)
 		{
 			case 0:
 			{
-				oled.OLED_Clear_Bufer_part(x,y,1,8);
-				oled.OLED_Write_To_Bufer(x,y,1,8,zero);
+				close();
 				break;
 			}
 			case 1:
 			{
-				oled.OLED_Clear_Bufer_part(x,y,1,8);
-				oled.OLED_Write_To_Bufer(x,y,1,8,one);
+				close();
 				break;
 			}
 			case 2:
 			{
-				oled.OLED_Clear_Bufer_part(x,y,1,8);
-				oled.OLED_Write_To_Bufer(x,y,1,8,two);
+				close();
 				break;
+			}
+		}
+	};
+	
+	void back()override
+	{
+		
+		
+	};
+	
+	void animate()override
+	{
+		
+		
+	};
+	
+	void actions()override
+	{
+		switch(pointer)
+		{
+			case 0:
+			{
+				oled.OLED_Clear_Bufer_part(MAIN_MENU_IMG_X,MAIN_MENU_IMG_Y,4,32);
+				oled.OLED_Write_To_Bufer(MAIN_MENU_IMG_X,MAIN_MENU_IMG_Y,4,32,lock);
+				break;
+			}
+			case 1:
+			{
+				oled.OLED_Clear_Bufer_part(MAIN_MENU_IMG_X,MAIN_MENU_IMG_Y,4,32);
+				oled.OLED_Write_To_Bufer(MAIN_MENU_IMG_X,MAIN_MENU_IMG_Y,4,32,gear);
+				break;
+			}
+			case 2:
+			{
+				oled.OLED_Clear_Bufer_part(MAIN_MENU_IMG_X,MAIN_MENU_IMG_Y,4,32);
+				oled.OLED_Write_To_Bufer(MAIN_MENU_IMG_X,MAIN_MENU_IMG_Y,4,32,info);
+				break;
+			}	
+		}
+	};
+	
+};
+
+#define PASSWORD_MENU_POINER_COUNT 4
+#define PASSWORD_MENU_SIMVOLS_COUNT 11
+#define PASSWORD_MENU_IMG_X_0 12
+#define PASSWORD_MENU_IMG_X_1 36
+#define PASSWORD_MENU_IMG_X_2 60
+#define PASSWORD_MENU_IMG_X_3 84
+#define PASSWORD_MENU_IMG_X_4 108
+#define PASSWORD_MENU_IMG_Y 2
+
+class Password_Menu:public Menu_Element
+{
+	protected:
+	int pointer=0;
+	int symbol_pointer=0;
+	int x[5]={PASSWORD_MENU_IMG_X_0,PASSWORD_MENU_IMG_X_1,PASSWORD_MENU_IMG_X_2,PASSWORD_MENU_IMG_X_3,PASSWORD_MENU_IMG_X_4};
+	int y=PASSWORD_MENU_IMG_Y;
+	public:
+	Password_Menu()
+	{
+		Default();
+		actions();
+	};
+	
+	void Default() override
+	{
+		oled.OLED_Write_To_Bufer(x[0],y+1,1,8,line);
+		oled.OLED_Write_To_Bufer(x[1],y+1,1,8,line);
+		oled.OLED_Write_To_Bufer(x[2],y+1,1,8,line);
+		oled.OLED_Write_To_Bufer(x[3],y+1,1,8,line);
+		oled.OLED_Write_To_Bufer(x[4],y+1,1,8,line);
+	};
+	
+	void refresh() override
+	{
+		
+		
+	};
+	
+	void close()override
+	{
+		oled.OLED_Bufer_Clear();
+	};
+	
+	void next()override
+	{
+		symbol_pointer++;
+		if(symbol_pointer>PASSWORD_MENU_SIMVOLS_COUNT) symbol_pointer=0;
+		actions();
+	};
+	
+	void previous()override
+	{
+		symbol_pointer--;
+		if(symbol_pointer<0) symbol_pointer=PASSWORD_MENU_SIMVOLS_COUNT;
+		actions();
+	};
+	
+	void choise()override
+	{
+		switch(symbol_pointer)
+		{
+			case 0:
+			{
+    			 pointer++;
+    			 for(int i=0;i<pointer;i++)
+    			 {
+	    			 oled.OLED_Clear_Bufer_part(x[i],y+2,1,8);
+	    			 oled.OLED_Clear_Bufer_part(x[i],y-1,1,8);
+    			 }
+    			 break;
+			}
+			case 1:
+			{
+    			 pointer++;
+    			 for(int i=0;i<pointer;i++)
+    			 {
+	    			 oled.OLED_Clear_Bufer_part(x[i],y+2,1,8);
+	    			 oled.OLED_Clear_Bufer_part(x[i],y-1,1,8);
+    			 }
+    			 break;
+			}
+			case 2:
+			{
+	    			 pointer++;
+	    			 for(int i=0;i<pointer;i++)
+	    			 {
+		    			 oled.OLED_Clear_Bufer_part(x[i],y+2,1,8);
+		    			 oled.OLED_Clear_Bufer_part(x[i],y-1,1,8);
+	    			 }
+	    			 break;
 			}
 			case 3:
 			{
-				oled.OLED_Clear_Bufer_part(x,y,1,8);
-				oled.OLED_Write_To_Bufer(x,y,1,8,three);
-				break;
+    			 pointer++;
+    			 for(int i=0;i<pointer;i++)
+    			 {
+	    			 oled.OLED_Clear_Bufer_part(x[i],y+2,1,8);
+	    			 oled.OLED_Clear_Bufer_part(x[i],y-1,1,8);
+    			 }
+    			 break;
 			}
 			case 4:
 			{
-				oled.OLED_Clear_Bufer_part(x,y,1,8);
-				oled.OLED_Write_To_Bufer(x,y,1,8,four);
-				break;
+    			 pointer++;
+    			 for(int i=0;i<pointer;i++)
+    			 {
+	    			 oled.OLED_Clear_Bufer_part(x[i],y+2,1,8);
+	    			 oled.OLED_Clear_Bufer_part(x[i],y-1,1,8);
+    			 }
+    			 break;
 			}
 			case 5:
 			{
-				oled.OLED_Clear_Bufer_part(x,y,1,8);
-				oled.OLED_Write_To_Bufer(x,y,1,8,five);
-				break;
+    			 pointer++;
+    			 for(int i=0;i<pointer;i++)
+    			 {
+	    			 oled.OLED_Clear_Bufer_part(x[i],y+2,1,8);
+	    			 oled.OLED_Clear_Bufer_part(x[i],y-1,1,8);
+    			 }
+    			 break;
 			}
 			case 6:
 			{
-				oled.OLED_Clear_Bufer_part(x,y,1,8);
-				oled.OLED_Write_To_Bufer(x,y,1,8,six);
-				break;
+    			 pointer++;
+    			 for(int i=0;i<pointer;i++)
+    			 {
+	    			 oled.OLED_Clear_Bufer_part(x[i],y+2,1,8);
+	    			 oled.OLED_Clear_Bufer_part(x[i],y-1,1,8);
+    			 }
+    			 break;
 			}
 			case 7:
 			{
-				oled.OLED_Clear_Bufer_part(x,y,1,8);
-				oled.OLED_Write_To_Bufer(x,y,1,8,seven);
-				break;
+    			 pointer++;
+    			 for(int i=0;i<pointer;i++)
+    			 {
+	    			 oled.OLED_Clear_Bufer_part(x[i],y+2,1,8);
+	    			 oled.OLED_Clear_Bufer_part(x[i],y-1,1,8);
+    			 }
+    			 break;
 			}
 			case 8:
 			{
-				oled.OLED_Clear_Bufer_part(x,y,1,8);
-				oled.OLED_Write_To_Bufer(x,y,1,8,eight);
-				break;
+    			 pointer++;
+    			 for(int i=0;i<pointer;i++)
+    			 {
+	    			 oled.OLED_Clear_Bufer_part(x[i],y+2,1,8);
+	    			 oled.OLED_Clear_Bufer_part(x[i],y-1,1,8);
+    			 }
+    			 break;
 			}
 			case 9:
 			{
-				oled.OLED_Clear_Bufer_part(x,y,1,8);
-				oled.OLED_Write_To_Bufer(x,y,1,8,nine);
+    			 pointer++;
+				for(int i=0;i<pointer;i++)
+				{
+					oled.OLED_Clear_Bufer_part(x[i],y+2,1,8);
+					oled.OLED_Clear_Bufer_part(x[i],y-1,1,8);
+				}
 				break;
 			}
 			case 10:
 			{
-				oled.OLED_Clear_Bufer_part(x,y,1,8);
-				oled.OLED_Write_To_Bufer(x,y,1,8,arrow);
+				 back();
 				break;
 			}
-			
 		}
+		     if(pointer>PASSWORD_MENU_POINER_COUNT) close();
+			 symbol_pointer=0;
+			 actions();	 
 		
-	}
+	};
 	
-};
-
-class main_menu_scene
-{
-	protected:
-	int pointer=0;
-	int imgnum=0;
-	int xcoord=49;
-	int ycoord=2;
-	public:
-	main_menu_scene()
+	void back()override
 	{
-		
-		write_default();
-		variants(xcoord,ycoord);
-		
-	}
-	
-	void write_default()
-	{
-		oled.OLED_Write_To_Bufer(xcoord-20,ycoord+1,1,16,lt);
-		oled.OLED_Write_To_Bufer(xcoord+52,ycoord+1,1,16,rt);
-	}
-	
-	void  clear_others()
-	{
-
-	}
-	
-	void up()
-	{
-		imgnum++;
-		if (imgnum>2) imgnum=0;
-		variants(xcoord,ycoord);
-	}
-	
-	void down()
-	{
-		imgnum--;
-		if (imgnum<0) imgnum=2;
-		variants(xcoord,ycoord);
-	}
-	
-	void back()
-	{
+		oled.OLED_Clear_Bufer_part(x[pointer],y,1,8);
+		oled.OLED_Clear_Bufer_part(x[pointer],y+2,1,8);
+		oled.OLED_Clear_Bufer_part(x[pointer],y-1,1,8);
 		pointer--;
-		if(pointer<0)pointer=2;
-			write_default();
-			variants(xcoord,ycoord);
-	}
+		if(pointer<0) close();
+		else actions();	
+	};
 	
-	void forward()
+	void animate()override
 	{
-		switch(imgnum)
-		{
-			case 0:
-			{
-				oled.OLED_Bufer_Clear();
-				pss=true;
-			
-				break;
-			}
-			case 1:
-			{
-
-				break;
-			}
-			case 2:
-			{
-
-				break;
-			}
-		}
-	}
-	
-	void variants(int x,int y)
-	{
-		switch(imgnum)
-		{
-			case 0:
-			{
-				oled.OLED_Clear_Bufer_part(x,y,4,32);
-				oled.OLED_Write_To_Bufer(x,y,4,32,gear);
-				break;
-			}
-			case 1:
-			{
-				oled.OLED_Clear_Bufer_part(x,y,4,32);
-				oled.OLED_Write_To_Bufer(x,y,4,32,lock);
-				break;
-			}
-			case 2:
-			{
-				oled.OLED_Clear_Bufer_part(x,y,4,32);
-				oled.OLED_Write_To_Bufer(x,y,4,32,unlock);
-				break;
-			}
-
-			
-		}
 		
-	}
+		
+	};
+	
+	void actions()override
+	{
+		switch(symbol_pointer)
+		{
+			case 0:
+			{
+				oled.OLED_Clear_Bufer_part(x[pointer],y,1,8);
+				oled.OLED_Write_To_Bufer(x[pointer],y,1,8,zero);
+				oled.OLED_Write_To_Bufer(x[pointer],y+2,1,8,downn);
+				oled.OLED_Write_To_Bufer(x[pointer],y-1,1,8,upp);
+				break;
+			}
+			case 1:
+			{
+				oled.OLED_Clear_Bufer_part(x[pointer],y,1,8);
+				oled.OLED_Write_To_Bufer(x[pointer],y,1,8,one);
+				oled.OLED_Write_To_Bufer(x[pointer],y+2,1,8,downn);
+				oled.OLED_Write_To_Bufer(x[pointer],y-1,1,8,upp);
+				break;
+			}
+			case 2:
+			{
+				oled.OLED_Clear_Bufer_part(x[pointer],y,1,8);
+				oled.OLED_Write_To_Bufer(x[pointer],y,1,8,two);
+				oled.OLED_Write_To_Bufer(x[pointer],y+2,1,8,downn);
+				oled.OLED_Write_To_Bufer(x[pointer],y-1,1,8,upp);
+				break;
+			}
+			case 3:
+			{
+				oled.OLED_Clear_Bufer_part(x[pointer],y,1,8);
+				oled.OLED_Write_To_Bufer(x[pointer],y,1,8,three);
+				oled.OLED_Write_To_Bufer(x[pointer],y+2,1,8,downn);
+				oled.OLED_Write_To_Bufer(x[pointer],y-1,1,8,upp);
+				break;
+			}
+			case 4:
+			{
+				oled.OLED_Clear_Bufer_part(x[pointer],y,1,8);
+				oled.OLED_Write_To_Bufer(x[pointer],y,1,8,four);
+				oled.OLED_Write_To_Bufer(x[pointer],y+2,1,8,downn);
+				oled.OLED_Write_To_Bufer(x[pointer],y-1,1,8,upp);
+				break;
+			}
+			case 5:
+			{
+				oled.OLED_Clear_Bufer_part(x[pointer],y,1,8);
+				oled.OLED_Write_To_Bufer(x[pointer],y,1,8,five);
+				oled.OLED_Write_To_Bufer(x[pointer],y+2,1,8,downn);
+				oled.OLED_Write_To_Bufer(x[pointer],y-1,1,8,upp);
+				break;
+			}
+			case 6:
+			{
+				oled.OLED_Clear_Bufer_part(x[pointer],y,1,8);
+				oled.OLED_Write_To_Bufer(x[pointer],y,1,8,six);
+				oled.OLED_Write_To_Bufer(x[pointer],y+2,1,8,downn);
+				oled.OLED_Write_To_Bufer(x[pointer],y-1,1,8,upp);
+				break;
+			}
+			case 7:
+			{
+				oled.OLED_Clear_Bufer_part(x[pointer],y,1,8);
+				oled.OLED_Write_To_Bufer(x[pointer],y,1,8,seven);
+				oled.OLED_Write_To_Bufer(x[pointer],y+2,1,8,downn);
+				oled.OLED_Write_To_Bufer(x[pointer],y-1,1,8,upp);
+				break;
+			}
+			case 8:
+			{
+				oled.OLED_Clear_Bufer_part(x[pointer],y,1,8);
+				oled.OLED_Write_To_Bufer(x[pointer],y,1,8,eight);
+				oled.OLED_Write_To_Bufer(x[pointer],y+2,1,8,downn);
+				oled.OLED_Write_To_Bufer(x[pointer],y-1,1,8,upp);
+				break;
+			}
+			case 9:
+			{
+				oled.OLED_Clear_Bufer_part(x[pointer],y,1,8);
+				oled.OLED_Write_To_Bufer(x[pointer],y,1,8,nine);
+				oled.OLED_Write_To_Bufer(x[pointer],y+2,1,8,downn);
+				oled.OLED_Write_To_Bufer(x[pointer],y-1,1,8,upp);
+				break;
+			}
+			case 10:
+			{
+				oled.OLED_Clear_Bufer_part(x[pointer],y,1,8);
+				oled.OLED_Write_To_Bufer(x[pointer],y,1,8,arrow);
+				oled.OLED_Write_To_Bufer(x[pointer],y+2,1,8,downn);
+				oled.OLED_Write_To_Bufer(x[pointer],y-1,1,8,upp);
+				break;
+			}
+		}
+	};
 	
 };
 
 
-password_scene passww;
-main_menu_scene passw;
+
+//Password_Menu passw_menu;
+Main_Menu menu;
 bool btn0=false;
 bool btn1=false;
 bool btn2=false;
@@ -323,8 +476,10 @@ void check()
 	{
 		oled.OLED_Clear_Bufer_part(0,0,1,8);
 		oled.OLED_Write_To_Bufer(0,0,1,8,zero);
-		if(!pss)passw.up();
-		else passww.up();
+	//	if(!pss)passw.up();
+		//else passww.up();
+		menu.previous();
+		//passw_menu.previous();
 	}
 	else if(!btn0 & btn1 & !btn2 & !btn3 & !btn12 & !btn03)
 	{
@@ -342,24 +497,27 @@ void check()
 	{
 		oled.OLED_Clear_Bufer_part(0,0,1,8);
 		oled.OLED_Write_To_Bufer(0,0,1,8,three);
-		if(!pss)passw.down();
-		else passww.down();
-		
+	//	if(!pss)passw.down();
+		//else passww.down();
+		menu.next();
+		//passw_menu.next();
 	}
 	else if(!btn0  & !btn3 & btn12 & !btn03)
 	{
 		oled.OLED_Clear_Bufer_part(0,0,1,8);
 		oled.OLED_Write_To_Bufer(0,0,1,8,four);
-		if(!pss)passw.forward();
-		else passww.forward();
+		//if(!pss)passw.forward();
+	//	else passww.forward();
+	menu.back();
 		
 	}
 	else if(!btn1 & !btn2 & !btn12 & btn03)
 	{
 		oled.OLED_Clear_Bufer_part(0,0,1,8);
 		oled.OLED_Write_To_Bufer(0,0,1,8,five);
-		if(!pss)passw.back();
-		else passww.back();
+	//	if(!pss)passw.back();
+	//	else passww.back();
+	//passw_menu.choise();
 		
 	}
 		btn0=false;
