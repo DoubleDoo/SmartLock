@@ -25,9 +25,20 @@ Discarded input sections
  .group         0x00000000        0x8 main.o
  .group         0x00000000        0x8 main.o
  .group         0x00000000        0x8 main.o
- .group         0x00000000        0xc main.o
+ .group         0x00000000        0x8 main.o
+ .group         0x00000000        0x8 main.o
+ .group         0x00000000        0x8 main.o
+ .group         0x00000000        0x8 main.o
+ .group         0x00000000        0x8 main.o
  .group         0x00000000        0x8 main.o
  .group         0x00000000        0xc main.o
+ .group         0x00000000        0x8 main.o
+ .group         0x00000000        0x8 main.o
+ .group         0x00000000        0x8 main.o
+ .group         0x00000000        0xc main.o
+ .group         0x00000000        0x8 main.o
+ .group         0x00000000        0x8 main.o
+ .group         0x00000000        0x8 main.o
  .group         0x00000000        0x8 main.o
  .group         0x00000000        0x8 main.o
  .group         0x00000000        0x8 main.o
@@ -38,17 +49,24 @@ Discarded input sections
  .text          0x00000000        0x0 main.o
  .data          0x00000000        0x0 main.o
  .bss           0x00000000        0x0 main.o
- .bss.batary    0x00000000        0x2 main.o
+ .bss.clear_row
+                0x00000000       0x80 main.o
+ .data.Z        0x00000000        0x8 main.o
+ .data.Y        0x00000000        0x8 main.o
+ .data.X        0x00000000        0x8 main.o
+ .data.U        0x00000000        0x8 main.o
+ .data.Q        0x00000000        0x8 main.o
+ .data.P        0x00000000        0x8 main.o
+ .data.M        0x00000000        0x8 main.o
+ .data.L        0x00000000        0x8 main.o
+ .data.K        0x00000000        0x8 main.o
+ .data.J        0x00000000        0x8 main.o
+ .data.F        0x00000000        0x8 main.o
  .data.Net1     0x00000000       0x10 main.o
  .data.Net2     0x00000000       0x10 main.o
  .data.Net3     0x00000000       0x10 main.o
  .data.Net4     0x00000000       0x10 main.o
  .data.batary0  0x00000000       0x20 main.o
- .data.batary1  0x00000000       0x20 main.o
- .data.batary2  0x00000000       0x20 main.o
- .data.batary3  0x00000000       0x20 main.o
- .data.batary4  0x00000000       0x20 main.o
- .data.batary5  0x00000000       0x20 main.o
  .bss.noneh     0x00000000       0x90 main.o
  .bss.none      0x00000000        0x8 main.o
  .text          0x00000000        0x0 OLED.o
@@ -269,7 +287,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x2568
+.text           0x00000000     0x2bd8
  *(.vectors)
  .vectors       0x00000000       0x8c C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.209/gcc/dev/atmega1284p/avr51/crtatmega1284p.o
                 0x00000000                __vector_default
@@ -281,204 +299,234 @@ END GROUP
  .progmem.gcc_sw_table._ZN13Password_Menu7actionsEv
                 0x000000a2       0x16 main.o
  .progmem.gcc_sw_table._Z5checkv
-                0x000000b8       0x2c main.o
-                0x000000e4                . = ALIGN (0x2)
-                0x000000e4                __trampolines_start = .
+                0x000000b8       0x16 main.o
+                0x000000ce                . = ALIGN (0x2)
+                0x000000ce                __trampolines_start = .
  *(.trampolines)
- .trampolines   0x000000e4        0x0 linker stubs
+ .trampolines   0x000000ce        0x0 linker stubs
  *(.trampolines*)
-                0x000000e4                __trampolines_end = .
+                0x000000ce                __trampolines_end = .
  *libprintf_flt.a:*(.progmem.data)
  *libc.a:*(.progmem.data)
  *(.progmem*)
-                0x000000e4                . = ALIGN (0x2)
+                0x000000ce                . = ALIGN (0x2)
  *(.jumptables)
  *(.jumptables*)
  *(.lowtext)
  *(.lowtext*)
-                0x000000e4                __ctors_start = .
+                0x000000ce                __ctors_start = .
  *(.ctors)
- .ctors         0x000000e4        0x2 main.o
-                0x000000e6                __ctors_end = .
-                0x000000e6                __dtors_start = .
+ .ctors         0x000000ce        0x2 main.o
+                0x000000d0                __ctors_end = .
+                0x000000d0                __dtors_start = .
  *(.dtors)
-                0x000000e6                __dtors_end = .
+                0x000000d0                __dtors_end = .
  SORT(*)(.ctors)
  SORT(*)(.dtors)
  *(.init0)
- .init0         0x000000e6        0x0 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.209/gcc/dev/atmega1284p/avr51/crtatmega1284p.o
-                0x000000e6                __init
+ .init0         0x000000d0        0x0 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.209/gcc/dev/atmega1284p/avr51/crtatmega1284p.o
+                0x000000d0                __init
  *(.init0)
  *(.init1)
  *(.init1)
  *(.init2)
- .init2         0x000000e6        0xc C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.209/gcc/dev/atmega1284p/avr51/crtatmega1284p.o
+ .init2         0x000000d0        0xc C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.209/gcc/dev/atmega1284p/avr51/crtatmega1284p.o
  *(.init2)
  *(.init3)
  *(.init3)
  *(.init4)
- .init4         0x000000f2       0x1a c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_copy_data.o)
-                0x000000f2                __do_copy_data
- .init4         0x0000010c       0x10 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_clear_bss.o)
-                0x0000010c                __do_clear_bss
+ .init4         0x000000dc       0x1a c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_copy_data.o)
+                0x000000dc                __do_copy_data
+ .init4         0x000000f6       0x10 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_clear_bss.o)
+                0x000000f6                __do_clear_bss
  *(.init4)
  *(.init5)
  *(.init5)
  *(.init6)
- .init6         0x0000011c       0x16 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_ctors.o)
-                0x0000011c                __do_global_ctors
+ .init6         0x00000106       0x16 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_ctors.o)
+                0x00000106                __do_global_ctors
  *(.init6)
  *(.init7)
  *(.init7)
  *(.init8)
  *(.init8)
  *(.init9)
- .init9         0x00000132        0x8 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.209/gcc/dev/atmega1284p/avr51/crtatmega1284p.o
+ .init9         0x0000011c        0x8 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.209/gcc/dev/atmega1284p/avr51/crtatmega1284p.o
  *(.init9)
  *(.text)
- .text          0x0000013a        0x2 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.209/gcc/dev/atmega1284p/avr51/crtatmega1284p.o
-                0x0000013a                __vector_22
-                0x0000013a                __vector_28
-                0x0000013a                __vector_1
-                0x0000013a                __vector_32
-                0x0000013a                __vector_34
-                0x0000013a                __vector_24
-                0x0000013a                __vector_12
-                0x0000013a                __bad_interrupt
-                0x0000013a                __vector_6
-                0x0000013a                __vector_31
-                0x0000013a                __vector_3
-                0x0000013a                __vector_23
-                0x0000013a                __vector_30
-                0x0000013a                __vector_25
-                0x0000013a                __vector_11
-                0x0000013a                __vector_13
-                0x0000013a                __vector_17
-                0x0000013a                __vector_19
-                0x0000013a                __vector_7
-                0x0000013a                __vector_27
-                0x0000013a                __vector_5
-                0x0000013a                __vector_33
-                0x0000013a                __vector_9
-                0x0000013a                __vector_2
-                0x0000013a                __vector_21
-                0x0000013a                __vector_15
-                0x0000013a                __vector_29
-                0x0000013a                __vector_8
-                0x0000013a                __vector_26
-                0x0000013a                __vector_14
-                0x0000013a                __vector_10
-                0x0000013a                __vector_16
-                0x0000013a                __vector_18
-                0x0000013a                __vector_20
-                0x0000013c                . = ALIGN (0x2)
+ .text          0x00000124        0x2 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.209/gcc/dev/atmega1284p/avr51/crtatmega1284p.o
+                0x00000124                __vector_22
+                0x00000124                __vector_28
+                0x00000124                __vector_1
+                0x00000124                __vector_32
+                0x00000124                __vector_34
+                0x00000124                __vector_24
+                0x00000124                __vector_12
+                0x00000124                __bad_interrupt
+                0x00000124                __vector_6
+                0x00000124                __vector_31
+                0x00000124                __vector_3
+                0x00000124                __vector_23
+                0x00000124                __vector_30
+                0x00000124                __vector_25
+                0x00000124                __vector_11
+                0x00000124                __vector_13
+                0x00000124                __vector_17
+                0x00000124                __vector_19
+                0x00000124                __vector_7
+                0x00000124                __vector_27
+                0x00000124                __vector_5
+                0x00000124                __vector_33
+                0x00000124                __vector_9
+                0x00000124                __vector_2
+                0x00000124                __vector_21
+                0x00000124                __vector_15
+                0x00000124                __vector_29
+                0x00000124                __vector_8
+                0x00000124                __vector_26
+                0x00000124                __vector_14
+                0x00000124                __vector_10
+                0x00000124                __vector_16
+                0x00000124                __vector_18
+                0x00000124                __vector_20
+                0x00000126                . = ALIGN (0x2)
  *(.text.*)
  .text._ZN9Main_Menu7refreshEv
-                0x0000013c       0x26 main.o
-                0x0000013c                _ZN9Main_Menu7refreshEv
+                0x00000126       0x26 main.o
+                0x00000126                _ZN9Main_Menu7refreshEv
  .text._ZN9Main_Menu4nextEv
-                0x00000162       0x34 main.o
-                0x00000162                _ZN9Main_Menu4nextEv
+                0x0000014c       0x34 main.o
+                0x0000014c                _ZN9Main_Menu4nextEv
  .text._ZN9Main_Menu8previousEv
-                0x00000196       0x34 main.o
-                0x00000196                _ZN9Main_Menu8previousEv
+                0x00000180       0x34 main.o
+                0x00000180                _ZN9Main_Menu8previousEv
  .text._ZN9Main_Menu6choiseEv
-                0x000001ca       0x26 main.o
-                0x000001ca                _ZN9Main_Menu6choiseEv
+                0x000001b4       0x4c main.o
+                0x000001b4                _ZN9Main_Menu6choiseEv
  .text._ZN9Main_Menu4backEv
-                0x000001f0        0x2 main.o
-                0x000001f0                _ZN9Main_Menu4backEv
+                0x00000200        0x2 main.o
+                0x00000200                _ZN9Main_Menu4backEv
  .text._ZN9Main_Menu7animateEv
-                0x000001f2        0x2 main.o
-                0x000001f2                _ZN9Main_Menu7animateEv
+                0x00000202        0x2 main.o
+                0x00000202                _ZN9Main_Menu7animateEv
  .text._ZN13Password_Menu7refreshEv
-                0x000001f4       0x26 main.o
-                0x000001f4                _ZN13Password_Menu7refreshEv
+                0x00000204       0x26 main.o
+                0x00000204                _ZN13Password_Menu7refreshEv
  .text._ZN13Password_Menu4nextEv
-                0x0000021a       0x34 main.o
-                0x0000021a                _ZN13Password_Menu4nextEv
+                0x0000022a       0x34 main.o
+                0x0000022a                _ZN13Password_Menu4nextEv
  .text._ZN13Password_Menu8previousEv
-                0x0000024e       0x34 main.o
-                0x0000024e                _ZN13Password_Menu8previousEv
+                0x0000025e       0x34 main.o
+                0x0000025e                _ZN13Password_Menu8previousEv
  .text._ZN13Password_Menu7animateEv
-                0x00000282        0x2 main.o
-                0x00000282                _ZN13Password_Menu7animateEv
+                0x00000292        0x2 main.o
+                0x00000292                _ZN13Password_Menu7animateEv
+ .text._ZN13Settings_Menu7refreshEv
+                0x00000294       0x26 main.o
+                0x00000294                _ZN13Settings_Menu7refreshEv
+ .text._ZN13Settings_Menu4nextEv
+                0x000002ba       0x34 main.o
+                0x000002ba                _ZN13Settings_Menu4nextEv
+ .text._ZN13Settings_Menu8previousEv
+                0x000002ee       0x34 main.o
+                0x000002ee                _ZN13Settings_Menu8previousEv
+ .text._ZN13Settings_Menu6choiseEv
+                0x00000322       0x1e main.o
+                0x00000322                _ZN13Settings_Menu6choiseEv
+ .text._ZN13Settings_Menu4backEv
+                0x00000340       0x1c main.o
+                0x00000340                _ZN13Settings_Menu4backEv
+ .text._ZN13Settings_Menu7animateEv
+                0x0000035c        0x2 main.o
+                0x0000035c                _ZN13Settings_Menu7animateEv
  .text._ZN13Password_Menu6choiseEv
-                0x00000284      0x4b6 main.o
-                0x00000284                _ZN13Password_Menu6choiseEv
+                0x0000035e      0x4b6 main.o
+                0x0000035e                _ZN13Password_Menu6choiseEv
  .text._ZN13Password_Menu4backEv
-                0x0000073a       0xc0 main.o
-                0x0000073a                _ZN13Password_Menu4backEv
+                0x00000814       0xc0 main.o
+                0x00000814                _ZN13Password_Menu4backEv
+ .text._ZN13Settings_Menu7actionsEv
+                0x000008d4      0x6fa main.o
+                0x000008d4                _ZN13Settings_Menu7actionsEv
+ .text._ZN13Settings_Menu7DefaultEv
+                0x00000fce       0x68 main.o
+                0x00000fce                _ZN13Settings_Menu7DefaultEv
  .text._ZN13Password_Menu7actionsEv
-                0x000007fa      0x836 main.o
-                0x000007fa                _ZN13Password_Menu7actionsEv
+                0x00001036      0x836 main.o
+                0x00001036                _ZN13Password_Menu7actionsEv
  .text._ZN13Password_Menu7DefaultEv
-                0x00001030       0xa4 main.o
-                0x00001030                _ZN13Password_Menu7DefaultEv
+                0x0000186c       0xa4 main.o
+                0x0000186c                _ZN13Password_Menu7DefaultEv
  .text._ZN9Main_Menu7actionsEv
-                0x000010d4      0x106 main.o
-                0x000010d4                _ZN9Main_Menu7actionsEv
+                0x00001910      0x102 main.o
+                0x00001910                _ZN9Main_Menu7actionsEv
  .text._ZN9Main_Menu7DefaultEv
-                0x000011da       0x56 main.o
-                0x000011da                _ZN9Main_Menu7DefaultEv
+                0x00001a12       0x52 main.o
+                0x00001a12                _ZN9Main_Menu7DefaultEv
+ .text._ZN13Settings_Menu5closeEv
+                0x00001a64       0x18 main.o
+                0x00001a64                _ZN13Settings_Menu5closeEv
  .text._ZN13Password_Menu5closeEv
-                0x00001230       0x18 main.o
-                0x00001230                _ZN13Password_Menu5closeEv
+                0x00001a7c       0x18 main.o
+                0x00001a7c                _ZN13Password_Menu5closeEv
  .text._ZN9Main_Menu5closeEv
-                0x00001248        0x8 main.o
-                0x00001248                _ZN9Main_Menu5closeEv
+                0x00001a94        0x8 main.o
+                0x00001a94                _ZN9Main_Menu5closeEv
  .text.__vector_4
-                0x00001250       0xb0 main.o
-                0x00001250                __vector_4
+                0x00001a9c       0xb0 main.o
+                0x00001a9c                __vector_4
  .text._Z5checkv
-                0x00001300      0xd8c main.o
-                0x00001300                _Z5checkv
- .text.main     0x0000208c       0xa6 main.o
-                0x0000208c                main
+                0x00001b4c      0x92c main.o
+                0x00001b4c                _Z5checkv
+ .text._ZN6Batary19printlvltoOLEDbuferEv
+                0x00002478       0xee main.o
+                0x00002478                _ZN6Batary19printlvltoOLEDbuferEv
+ .text.main     0x00002566      0x1e6 main.o
+                0x00002566                main
  .text._GLOBAL__sub_I_zero
-                0x00002132       0x5c main.o
+                0x0000274c       0xb2 main.o
  .text._ZN4OLED12OLED_CommandEi
-                0x0000218e       0x2c OLED.o
-                0x0000218e                _ZN4OLED12OLED_CommandEi
+                0x000027fe       0x2c OLED.o
+                0x000027fe                _ZN4OLED12OLED_CommandEi
  .text._ZN4OLED9OLED_DataEi
-                0x000021ba       0x16 OLED.o
-                0x000021ba                _ZN4OLED9OLED_DataEi
+                0x0000282a       0x16 OLED.o
+                0x0000282a                _ZN4OLED9OLED_DataEi
  .text._ZN4OLED16OLED_Write_BuferEv
-                0x000021d0       0x32 OLED.o
-                0x000021d0                _ZN4OLED16OLED_Write_BuferEv
+                0x00002840       0x32 OLED.o
+                0x00002840                _ZN4OLED16OLED_Write_BuferEv
  .text._ZN4OLED16OLED_Bufer_ClearEv
-                0x00002202        0xe OLED.o
-                0x00002202                _ZN4OLED16OLED_Bufer_ClearEv
+                0x00002872        0xe OLED.o
+                0x00002872                _ZN4OLED16OLED_Bufer_ClearEv
  .text._ZN4OLEDC2E3TWI
-                0x00002210      0x114 OLED.o
-                0x00002210                _ZN4OLEDC2E3TWI
-                0x00002210                _ZN4OLEDC1E3TWI
+                0x00002880      0x114 OLED.o
+                0x00002880                _ZN4OLEDC2E3TWI
+                0x00002880                _ZN4OLEDC1E3TWI
  .text._ZN4OLED21OLED_Clear_Bufer_partEiiii
-                0x00002324       0x9e OLED.o
-                0x00002324                _ZN4OLED21OLED_Clear_Bufer_partEiiii
+                0x00002994       0x9e OLED.o
+                0x00002994                _ZN4OLED21OLED_Clear_Bufer_partEiiii
  .text._ZN4OLED19OLED_Write_To_BuferEiiiiPh
-                0x000023c2      0x15a OLED.o
-                0x000023c2                _ZN4OLED19OLED_Write_To_BuferEiiiiPh
+                0x00002a32      0x15a OLED.o
+                0x00002a32                _ZN4OLED19OLED_Write_To_BuferEiiiiPh
  .text._ZN3TWIC2Ev
-                0x0000251c        0x2 TWI.o
-                0x0000251c                _ZN3TWIC1Ev
-                0x0000251c                _ZN3TWIC2Ev
+                0x00002b8c        0x2 TWI.o
+                0x00002b8c                _ZN3TWIC1Ev
+                0x00002b8c                _ZN3TWIC2Ev
  .text._ZN3TWI8twi_InitEv
-                0x0000251e        0xa TWI.o
-                0x0000251e                _ZN3TWI8twi_InitEv
+                0x00002b8e        0xa TWI.o
+                0x00002b8e                _ZN3TWI8twi_InitEv
  .text._ZN3TWI14twi_SendAdressEv
-                0x00002528       0x18 TWI.o
-                0x00002528                _ZN3TWI14twi_SendAdressEv
+                0x00002b98       0x18 TWI.o
+                0x00002b98                _ZN3TWI14twi_SendAdressEv
  .text._ZN3TWI9twi_StartEv
-                0x00002540       0x12 TWI.o
-                0x00002540                _ZN3TWI9twi_StartEv
- .text.libgcc   0x00002552       0x12 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_tablejump2.o)
-                0x00002552                __tablejump2__
-                0x00002564                . = ALIGN (0x2)
+                0x00002bb0       0x12 TWI.o
+                0x00002bb0                _ZN3TWI9twi_StartEv
+ .text.libgcc   0x00002bc2       0x12 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_tablejump2.o)
+                0x00002bc2                __tablejump2__
+                0x00002bd4                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00002564        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_exit.o)
-                0x00002564                _exit
-                0x00002564                exit
+ .fini9         0x00002bd4        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_exit.o)
+                0x00002bd4                _exit
+                0x00002bd4                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -497,115 +545,172 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00002564        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_exit.o)
+ .fini0         0x00002bd4        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr51\libgcc.a(_exit.o)
  *(.fini0)
-                0x00002568                _etext = .
+                0x00002bd8                _etext = .
 
-.data           0x00800100      0x2f8 load address 0x00002568
+.data           0x00800100      0x45e load address 0x00002bd8
                 0x00800100                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
  .data.Main_Menu_Status
                 0x00800100        0x1 main.o
                 0x00800100                Main_Menu_Status
- .data.Net0     0x00800101       0x10 main.o
-                0x00800101                Net0
- .data.lt       0x00800111       0x10 main.o
-                0x00800111                lt
- .data.unlock   0x00800121       0x80 main.o
-                0x00800121                unlock
- .data.rt       0x008001a1       0x10 main.o
-                0x008001a1                rt
- .data.lock     0x008001b1       0x80 main.o
-                0x008001b1                lock
- .data.info     0x00800231       0x90 main.o
-                0x00800231                info
- .data.gear     0x008002c1       0x90 main.o
-                0x008002c1                gear
- .data.downn    0x00800351        0x8 main.o
-                0x00800351                downn
- .data.upp      0x00800359        0x8 main.o
-                0x00800359                upp
- .data.arrow    0x00800361        0x8 main.o
-                0x00800361                arrow
- .data.line     0x00800369        0x8 main.o
-                0x00800369                line
- .data.nine     0x00800371        0x8 main.o
-                0x00800371                nine
- .data.eight    0x00800379        0x8 main.o
-                0x00800379                eight
- .data.seven    0x00800381        0x8 main.o
-                0x00800381                seven
- .data.six      0x00800389        0x8 main.o
-                0x00800389                six
- .data.five     0x00800391        0x8 main.o
-                0x00800391                five
- .data.four     0x00800399        0x8 main.o
-                0x00800399                four
- .data.three    0x008003a1        0x8 main.o
-                0x008003a1                three
- .data.two      0x008003a9        0x8 main.o
-                0x008003a9                two
- .data.one      0x008003b1        0x8 main.o
-                0x008003b1                one
- .data.zero     0x008003b9        0x8 main.o
-                0x008003b9                zero
+ .data.backk    0x00800101       0x10 main.o
+                0x00800101                backk
+ .data.W        0x00800111        0x8 main.o
+                0x00800111                W
+ .data.V        0x00800119        0x8 main.o
+                0x00800119                V
+ .data.T        0x00800121        0x8 main.o
+                0x00800121                T
+ .data.S        0x00800129        0x8 main.o
+                0x00800129                S
+ .data.R        0x00800131        0x8 main.o
+                0x00800131                R
+ .data.O        0x00800139        0x8 main.o
+                0x00800139                O
+ .data.N        0x00800141        0x8 main.o
+                0x00800141                N
+ .data.I        0x00800149        0x8 main.o
+                0x00800149                I
+ .data.H        0x00800151        0x8 main.o
+                0x00800151                H
+ .data.G        0x00800159        0x8 main.o
+                0x00800159                G
+ .data.E        0x00800161        0x8 main.o
+                0x00800161                E
+ .data.D        0x00800169        0x8 main.o
+                0x00800169                D
+ .data.C        0x00800171        0x8 main.o
+                0x00800171                C
+ .data.B        0x00800179        0x8 main.o
+                0x00800179                B
+ .data.A        0x00800181        0x8 main.o
+                0x00800181                A
+ .data.Net0     0x00800189       0x10 main.o
+                0x00800189                Net0
+ .data.batary1  0x00800199       0x20 main.o
+                0x00800199                batary1
+ .data.batary2  0x008001b9       0x20 main.o
+                0x008001b9                batary2
+ .data.batary3  0x008001d9       0x20 main.o
+                0x008001d9                batary3
+ .data.batary4  0x008001f9       0x20 main.o
+                0x008001f9                batary4
+ .data.batary5  0x00800219       0x20 main.o
+                0x00800219                batary5
+ .data.downwd   0x00800239       0x10 main.o
+                0x00800239                downwd
+ .data.upwd     0x00800249       0x10 main.o
+                0x00800249                upwd
+ .data.lt       0x00800259       0x10 main.o
+                0x00800259                lt
+ .data.unlock   0x00800269       0x80 main.o
+                0x00800269                unlock
+ .data.rt       0x008002e9       0x10 main.o
+                0x008002e9                rt
+ .data.lock     0x008002f9       0x80 main.o
+                0x008002f9                lock
+ .data.info     0x00800379       0x90 main.o
+                0x00800379                info
+ .data.gear     0x00800409       0x90 main.o
+                0x00800409                gear
+ .data.downn    0x00800499        0x8 main.o
+                0x00800499                downn
+ .data.upp      0x008004a1        0x8 main.o
+                0x008004a1                upp
+ .data.arrow    0x008004a9        0x8 main.o
+                0x008004a9                arrow
+ .data.line     0x008004b1        0x8 main.o
+                0x008004b1                line
+ .data.nine     0x008004b9        0x8 main.o
+                0x008004b9                nine
+ .data.eight    0x008004c1        0x8 main.o
+                0x008004c1                eight
+ .data.seven    0x008004c9        0x8 main.o
+                0x008004c9                seven
+ .data.six      0x008004d1        0x8 main.o
+                0x008004d1                six
+ .data.five     0x008004d9        0x8 main.o
+                0x008004d9                five
+ .data.four     0x008004e1        0x8 main.o
+                0x008004e1                four
+ .data.three    0x008004e9        0x8 main.o
+                0x008004e9                three
+ .data.two      0x008004f1        0x8 main.o
+                0x008004f1                two
+ .data.one      0x008004f9        0x8 main.o
+                0x008004f9                one
+ .data.zero     0x00800501        0x8 main.o
+                0x00800501                zero
  *(.gnu.linkonce.d*)
  *(.rodata)
- .rodata        0x008003c1        0xa main.o
+ .rodata        0x00800509       0x12 main.o
  *(.rodata*)
  .rodata._ZTV9Main_Menu
-                0x008003cb       0x16 main.o
-                0x008003cb                _ZTV9Main_Menu
+                0x0080051b       0x16 main.o
+                0x0080051b                _ZTV9Main_Menu
  .rodata._ZTV13Password_Menu
-                0x008003e1       0x16 main.o
-                0x008003e1                _ZTV13Password_Menu
+                0x00800531       0x16 main.o
+                0x00800531                _ZTV13Password_Menu
+ .rodata._ZTV13Settings_Menu
+                0x00800547       0x16 main.o
+                0x00800547                _ZTV13Settings_Menu
  *(.gnu.linkonce.r*)
-                0x008003f8                . = ALIGN (0x2)
- *fill*         0x008003f7        0x1 
-                0x008003f8                _edata = .
-                0x008003f8                PROVIDE (__data_end, .)
+                0x0080055e                . = ALIGN (0x2)
+ *fill*         0x0080055d        0x1 
+                0x0080055e                _edata = .
+                0x0080055e                PROVIDE (__data_end, .)
 
-.bss            0x008003f8      0x424
-                0x008003f8                PROVIDE (__bss_start, .)
+.bss            0x0080055e      0x437
+                0x0080055e                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
- .bss.btn12     0x008003f8        0x1 main.o
-                0x008003f8                btn12
- .bss.btn03     0x008003f9        0x1 main.o
-                0x008003f9                btn03
- .bss.btn3      0x008003fa        0x1 main.o
-                0x008003fa                btn3
- .bss.btn2      0x008003fb        0x1 main.o
-                0x008003fb                btn2
- .bss.btn1      0x008003fc        0x1 main.o
-                0x008003fc                btn1
- .bss.btn0      0x008003fd        0x1 main.o
-                0x008003fd                btn0
- .bss.menu      0x008003fe        0x6 main.o
-                0x008003fe                menu
+ .bss.batary    0x0080055e        0x2 main.o
+                0x0080055e                batary
+ .bss.btn12     0x00800560        0x1 main.o
+                0x00800560                btn12
+ .bss.btn03     0x00800561        0x1 main.o
+                0x00800561                btn03
+ .bss.btn3      0x00800562        0x1 main.o
+                0x00800562                btn3
+ .bss.btn2      0x00800563        0x1 main.o
+                0x00800563                btn2
+ .bss.btn1      0x00800564        0x1 main.o
+                0x00800564                btn1
+ .bss.btn0      0x00800565        0x1 main.o
+                0x00800565                btn0
+ .bss.menu      0x00800566        0x6 main.o
+                0x00800566                menu
  .bss.passw_menu
-                0x00800404       0x14 main.o
-                0x00800404                passw_menu
- .bss.locked    0x00800418        0x1 main.o
-                0x00800418                locked
+                0x0080056c       0x14 main.o
+                0x0080056c                passw_menu
+ .bss.sett_menu
+                0x00800580       0x10 main.o
+                0x00800580                sett_menu
+ .bss.locked    0x00800590        0x1 main.o
+                0x00800590                locked
+ .bss.Settings_Menu_Status
+                0x00800591        0x1 main.o
+                0x00800591                Settings_Menu_Status
  .bss.Password_Menu_Status
-                0x00800419        0x1 main.o
-                0x00800419                Password_Menu_Status
- .bss.oled      0x0080041a      0x401 main.o
-                0x0080041a                oled
- .bss.wire      0x0080081b        0x1 main.o
-                0x0080081b                wire
+                0x00800592        0x1 main.o
+                0x00800592                Password_Menu_Status
+ .bss.oled      0x00800593      0x401 main.o
+                0x00800593                oled
+ .bss.wire      0x00800994        0x1 main.o
+                0x00800994                wire
  *(COMMON)
-                0x0080081c                PROVIDE (__bss_end, .)
-                0x00002568                __data_load_start = LOADADDR (.data)
-                0x00002860                __data_load_end = (__data_load_start + SIZEOF (.data))
+                0x00800995                PROVIDE (__bss_end, .)
+                0x00002bd8                __data_load_start = LOADADDR (.data)
+                0x00003036                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x0080081c        0x0
+.noinit         0x00800995        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
  *(.noinit*)
                 [!provide]                PROVIDE (__noinit_end, .)
-                0x0080081c                _end = .
+                0x00800995                _end = .
                 [!provide]                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
@@ -672,60 +777,60 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000      0x160
+.debug_aranges  0x00000000      0x1b0
  *(.debug_aranges)
  .debug_aranges
-                0x00000000       0xc8 main.o
+                0x00000000      0x118 main.o
  .debug_aranges
-                0x000000c8       0x50 OLED.o
+                0x00000118       0x50 OLED.o
  .debug_aranges
-                0x00000118       0x48 TWI.o
+                0x00000168       0x48 TWI.o
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x476d
+.debug_info     0x00000000     0x5761
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x792 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.209/gcc/dev/atmega1284p/avr51/crtatmega1284p.o
- .debug_info    0x00000792     0x33f9 main.o
- .debug_info    0x00003b8b      0x991 OLED.o
- .debug_info    0x0000451c      0x251 TWI.o
+ .debug_info    0x00000792     0x43ed main.o
+ .debug_info    0x00004b7f      0x991 OLED.o
+ .debug_info    0x00005510      0x251 TWI.o
 
-.debug_abbrev   0x00000000      0xe8e
+.debug_abbrev   0x00000000      0xeb9
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x729 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.209/gcc/dev/atmega1284p/avr51/crtatmega1284p.o
- .debug_abbrev  0x00000729      0x437 main.o
- .debug_abbrev  0x00000b60      0x200 OLED.o
- .debug_abbrev  0x00000d60      0x12e TWI.o
+ .debug_abbrev  0x00000729      0x462 main.o
+ .debug_abbrev  0x00000b8b      0x200 OLED.o
+ .debug_abbrev  0x00000d8b      0x12e TWI.o
 
-.debug_line     0x00000000     0x11b5
+.debug_line     0x00000000     0x13fa
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x169 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.209/gcc/dev/atmega1284p/avr51/crtatmega1284p.o
- .debug_line    0x00000169      0xc75 main.o
- .debug_line    0x00000dde      0x2f4 OLED.o
- .debug_line    0x000010d2       0xe3 TWI.o
+ .debug_line    0x00000169      0xeba main.o
+ .debug_line    0x00001023      0x2f4 OLED.o
+ .debug_line    0x00001317       0xe3 TWI.o
 
-.debug_frame    0x00000000      0x444
+.debug_frame    0x00000000      0x564
  *(.debug_frame)
- .debug_frame   0x00000000      0x290 main.o
- .debug_frame   0x00000290      0x140 OLED.o
- .debug_frame   0x000003d0       0x74 TWI.o
+ .debug_frame   0x00000000      0x3b0 main.o
+ .debug_frame   0x000003b0      0x140 OLED.o
+ .debug_frame   0x000004f0       0x74 TWI.o
 
-.debug_str      0x00000000      0xae7
+.debug_str      0x00000000      0xc5e
  *(.debug_str)
  .debug_str     0x00000000      0x296 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.209/gcc/dev/atmega1284p/avr51/crtatmega1284p.o
- .debug_str     0x00000296      0x7fa main.o
-                                0x850 (size before relaxing)
- .debug_str     0x00000a90       0x3e OLED.o
+ .debug_str     0x00000296      0x971 main.o
+                                0x9c7 (size before relaxing)
+ .debug_str     0x00000c07       0x3e OLED.o
                                 0x3b6 (size before relaxing)
- .debug_str     0x00000ace       0x19 TWI.o
+ .debug_str     0x00000c45       0x19 TWI.o
                                 0x246 (size before relaxing)
 
-.debug_loc      0x00000000     0x1550
+.debug_loc      0x00000000     0x17ff
  *(.debug_loc)
- .debug_loc     0x00000000      0xe08 main.o
- .debug_loc     0x00000e08      0x6b0 OLED.o
- .debug_loc     0x000014b8       0x98 TWI.o
+ .debug_loc     0x00000000     0x10b7 main.o
+ .debug_loc     0x000010b7      0x6b0 OLED.o
+ .debug_loc     0x00001767       0x98 TWI.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -745,11 +850,11 @@ END GROUP
 .debug_pubtypes
  *(.debug_pubtypes)
 
-.debug_ranges   0x00000000      0x178
+.debug_ranges   0x00000000      0x1e0
  *(.debug_ranges)
- .debug_ranges  0x00000000       0xe8 main.o
- .debug_ranges  0x000000e8       0x58 OLED.o
- .debug_ranges  0x00000140       0x38 TWI.o
+ .debug_ranges  0x00000000      0x150 main.o
+ .debug_ranges  0x00000150       0x58 OLED.o
+ .debug_ranges  0x000001a8       0x38 TWI.o
 
 .debug_macro
  *(.debug_macro)
