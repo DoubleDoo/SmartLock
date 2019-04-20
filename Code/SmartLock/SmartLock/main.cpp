@@ -3,12 +3,15 @@
 #include "TWI.h"
 #include "OLED.h"
 
+
 TWI wire;
 OLED oled(wire);
 bool Main_Menu_Status=true;
 bool Password_Menu_Status=false;
 bool Settings_Menu_Status=false;
 bool locked=false;
+
+
 
 class Menu_Element
 {
@@ -842,9 +845,11 @@ int main(void){
 		PORTA=0x00;
 		PCMSK0=0b00111100;
 		PCICR|=0b00000001;
-		sei();
+		
+		int i=0;
 	while(1)
 	{
+		sei();
 		check();
 		if (Password_Menu_Status)
 		{
@@ -861,6 +866,7 @@ int main(void){
 		batary.refresh();
 		oled.OLED_Write_To_Bufer(80,0,2,8,Net0);
 		oled.OLED_Write_Bufer();
+		i++;
 	}
 }
 

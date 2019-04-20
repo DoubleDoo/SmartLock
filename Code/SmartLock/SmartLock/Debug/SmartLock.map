@@ -504,9 +504,9 @@ END GROUP
  .text._ZN4OLED21OLED_Clear_Bufer_partEiiii
                 0x00002994       0x9e OLED.o
                 0x00002994                _ZN4OLED21OLED_Clear_Bufer_partEiiii
- .text._ZN4OLED19OLED_Write_To_BuferEiiiiPh
+ .text._ZN4OLED19OLED_Write_To_BuferEiiiiPKh
                 0x00002a32      0x15a OLED.o
-                0x00002a32                _ZN4OLED19OLED_Write_To_BuferEiiiiPh
+                0x00002a32                _ZN4OLED19OLED_Write_To_BuferEiiiiPKh
  .text._ZN3TWIC2Ev
                 0x00002b8c        0x2 TWI.o
                 0x00002b8c                _ZN3TWIC1Ev
@@ -789,26 +789,26 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x5761
+.debug_info     0x00000000     0x577a
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x792 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.209/gcc/dev/atmega1284p/avr51/crtatmega1284p.o
- .debug_info    0x00000792     0x43ed main.o
- .debug_info    0x00004b7f      0x991 OLED.o
- .debug_info    0x00005510      0x251 TWI.o
+ .debug_info    0x00000792     0x4401 main.o
+ .debug_info    0x00004b93      0x996 OLED.o
+ .debug_info    0x00005529      0x251 TWI.o
 
-.debug_abbrev   0x00000000      0xeb9
+.debug_abbrev   0x00000000      0xec8
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x729 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.209/gcc/dev/atmega1284p/avr51/crtatmega1284p.o
- .debug_abbrev  0x00000729      0x462 main.o
- .debug_abbrev  0x00000b8b      0x200 OLED.o
- .debug_abbrev  0x00000d8b      0x12e TWI.o
+ .debug_abbrev  0x00000729      0x471 main.o
+ .debug_abbrev  0x00000b9a      0x200 OLED.o
+ .debug_abbrev  0x00000d9a      0x12e TWI.o
 
-.debug_line     0x00000000     0x13fa
+.debug_line     0x00000000     0x13fb
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x169 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.209/gcc/dev/atmega1284p/avr51/crtatmega1284p.o
- .debug_line    0x00000169      0xeba main.o
- .debug_line    0x00001023      0x2f4 OLED.o
- .debug_line    0x00001317       0xe3 TWI.o
+ .debug_line    0x00000169      0xebb main.o
+ .debug_line    0x00001024      0x2f4 OLED.o
+ .debug_line    0x00001318       0xe3 TWI.o
 
 .debug_frame    0x00000000      0x564
  *(.debug_frame)
@@ -816,21 +816,21 @@ END GROUP
  .debug_frame   0x000003b0      0x140 OLED.o
  .debug_frame   0x000004f0       0x74 TWI.o
 
-.debug_str      0x00000000      0xc5e
+.debug_str      0x00000000      0xc5f
  *(.debug_str)
  .debug_str     0x00000000      0x296 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.209/gcc/dev/atmega1284p/avr51/crtatmega1284p.o
- .debug_str     0x00000296      0x971 main.o
-                                0x9c7 (size before relaxing)
- .debug_str     0x00000c07       0x3e OLED.o
-                                0x3b6 (size before relaxing)
- .debug_str     0x00000c45       0x19 TWI.o
+ .debug_str     0x00000296      0x972 main.o
+                                0x9c8 (size before relaxing)
+ .debug_str     0x00000c08       0x3e OLED.o
+                                0x3b7 (size before relaxing)
+ .debug_str     0x00000c46       0x19 TWI.o
                                 0x246 (size before relaxing)
 
-.debug_loc      0x00000000     0x17ff
+.debug_loc      0x00000000     0x1813
  *(.debug_loc)
- .debug_loc     0x00000000     0x10b7 main.o
- .debug_loc     0x000010b7      0x6b0 OLED.o
- .debug_loc     0x00001767       0x98 TWI.o
+ .debug_loc     0x00000000     0x10cb main.o
+ .debug_loc     0x000010cb      0x6b0 OLED.o
+ .debug_loc     0x0000177b       0x98 TWI.o
 
 .debug_macinfo
  *(.debug_macinfo)

@@ -98,7 +98,7 @@
 		}
 	}
 
-	void OLED::OLED_Write_To_Bufer(int x,int y,int width,int height,uint8_t* img)
+	void OLED::OLED_Write_To_Bufer(int x,int y,int width,int height,const uint8_t* img)
 	{
 		for(int j=0;j<height;j++)
 		{

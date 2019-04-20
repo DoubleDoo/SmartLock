@@ -15,19 +15,19 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY
   5 .debug_aranges 000001b0  00000000  00000000  0000313c  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   00005761  00000000  00000000  000032ec  2**0
+  6 .debug_info   0000577a  00000000  00000000  000032ec  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 00000eb9  00000000  00000000  00008a4d  2**0
+  7 .debug_abbrev 00000ec8  00000000  00000000  00008a66  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   000013fa  00000000  00000000  00009906  2**0
+  8 .debug_line   000013fb  00000000  00000000  0000992e  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  00000564  00000000  00000000  0000ad00  2**2
+  9 .debug_frame  00000564  00000000  00000000  0000ad2c  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    00000c5e  00000000  00000000  0000b264  2**0
+ 10 .debug_str    00000c5f  00000000  00000000  0000b290  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    000017ff  00000000  00000000  0000bec2  2**0
+ 11 .debug_loc    00001813  00000000  00000000  0000beef  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 000001e0  00000000  00000000  0000d6c1  2**0
+ 12 .debug_ranges 000001e0  00000000  00000000  0000d702  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -1640,7 +1640,7 @@ Disassembly of section .text:
      94c:	30 e0       	ldi	r19, 0x00	; 0
      94e:	83 e9       	ldi	r24, 0x93	; 147
      950:	95 e0       	ldi	r25, 0x05	; 5
-     952:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+     952:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 					oled.OLED_Write_To_Bufer(x[pointer]+8,y,1,8,E);
      956:	4e 85       	ldd	r20, Y+14	; 0x0e
      958:	5f 85       	ldd	r21, Y+15	; 0x0f
@@ -1665,7 +1665,7 @@ Disassembly of section .text:
      97e:	30 e0       	ldi	r19, 0x00	; 0
      980:	83 e9       	ldi	r24, 0x93	; 147
      982:	95 e0       	ldi	r25, 0x05	; 5
-     984:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+     984:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 					oled.OLED_Write_To_Bufer(x[pointer]+16,y,1,8,T);
      988:	4e 85       	ldd	r20, Y+14	; 0x0e
      98a:	5f 85       	ldd	r21, Y+15	; 0x0f
@@ -1690,7 +1690,7 @@ Disassembly of section .text:
      9b0:	30 e0       	ldi	r19, 0x00	; 0
      9b2:	83 e9       	ldi	r24, 0x93	; 147
      9b4:	95 e0       	ldi	r25, 0x05	; 5
-     9b6:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+     9b6:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 					oled.OLED_Write_To_Bufer(x[pointer]+32,y,1,8,B);
      9ba:	4e 85       	ldd	r20, Y+14	; 0x0e
      9bc:	5f 85       	ldd	r21, Y+15	; 0x0f
@@ -1715,7 +1715,7 @@ Disassembly of section .text:
      9e2:	30 e0       	ldi	r19, 0x00	; 0
      9e4:	83 e9       	ldi	r24, 0x93	; 147
      9e6:	95 e0       	ldi	r25, 0x05	; 5
-     9e8:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+     9e8:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 					oled.OLED_Write_To_Bufer(x[pointer]+40,y,1,8,R);
      9ec:	4e 85       	ldd	r20, Y+14	; 0x0e
      9ee:	5f 85       	ldd	r21, Y+15	; 0x0f
@@ -1740,7 +1740,7 @@ Disassembly of section .text:
      a14:	30 e0       	ldi	r19, 0x00	; 0
      a16:	83 e9       	ldi	r24, 0x93	; 147
      a18:	95 e0       	ldi	r25, 0x05	; 5
-     a1a:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+     a1a:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 					oled.OLED_Write_To_Bufer(x[pointer]+48,y,1,8,I);
      a1e:	4e 85       	ldd	r20, Y+14	; 0x0e
      a20:	5f 85       	ldd	r21, Y+15	; 0x0f
@@ -1765,7 +1765,7 @@ Disassembly of section .text:
      a46:	30 e0       	ldi	r19, 0x00	; 0
      a48:	83 e9       	ldi	r24, 0x93	; 147
      a4a:	95 e0       	ldi	r25, 0x05	; 5
-     a4c:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+     a4c:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 					oled.OLED_Write_To_Bufer(x[pointer]+56,y,1,8,G);
      a50:	4e 85       	ldd	r20, Y+14	; 0x0e
      a52:	5f 85       	ldd	r21, Y+15	; 0x0f
@@ -1790,7 +1790,7 @@ Disassembly of section .text:
      a78:	30 e0       	ldi	r19, 0x00	; 0
      a7a:	83 e9       	ldi	r24, 0x93	; 147
      a7c:	95 e0       	ldi	r25, 0x05	; 5
-     a7e:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+     a7e:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 					oled.OLED_Write_To_Bufer(x[pointer]+64,y,1,8,H);
      a82:	4e 85       	ldd	r20, Y+14	; 0x0e
      a84:	5f 85       	ldd	r21, Y+15	; 0x0f
@@ -1815,7 +1815,7 @@ Disassembly of section .text:
      aaa:	30 e0       	ldi	r19, 0x00	; 0
      aac:	83 e9       	ldi	r24, 0x93	; 147
      aae:	95 e0       	ldi	r25, 0x05	; 5
-     ab0:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+     ab0:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 					oled.OLED_Write_To_Bufer(x[pointer]+72,y,1,8,T);
      ab4:	4e 85       	ldd	r20, Y+14	; 0x0e
      ab6:	5f 85       	ldd	r21, Y+15	; 0x0f
@@ -1840,7 +1840,7 @@ Disassembly of section .text:
      adc:	30 e0       	ldi	r19, 0x00	; 0
      ade:	83 e9       	ldi	r24, 0x93	; 147
      ae0:	95 e0       	ldi	r25, 0x05	; 5
-     ae2:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+     ae2:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 					oled.OLED_Write_To_Bufer(x[pointer]+80,y,1,8,N);
      ae6:	4e 85       	ldd	r20, Y+14	; 0x0e
      ae8:	5f 85       	ldd	r21, Y+15	; 0x0f
@@ -1865,7 +1865,7 @@ Disassembly of section .text:
      b0e:	30 e0       	ldi	r19, 0x00	; 0
      b10:	83 e9       	ldi	r24, 0x93	; 147
      b12:	95 e0       	ldi	r25, 0x05	; 5
-     b14:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+     b14:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 					oled.OLED_Write_To_Bufer(x[pointer]+88,y,1,8,E);
      b18:	4e 85       	ldd	r20, Y+14	; 0x0e
      b1a:	5f 85       	ldd	r21, Y+15	; 0x0f
@@ -1890,7 +1890,7 @@ Disassembly of section .text:
      b40:	30 e0       	ldi	r19, 0x00	; 0
      b42:	83 e9       	ldi	r24, 0x93	; 147
      b44:	95 e0       	ldi	r25, 0x05	; 5
-     b46:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+     b46:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 					oled.OLED_Write_To_Bufer(x[pointer]+96,y,1,8,S);
      b4a:	4e 85       	ldd	r20, Y+14	; 0x0e
      b4c:	5f 85       	ldd	r21, Y+15	; 0x0f
@@ -1915,7 +1915,7 @@ Disassembly of section .text:
      b72:	30 e0       	ldi	r19, 0x00	; 0
      b74:	83 e9       	ldi	r24, 0x93	; 147
      b76:	95 e0       	ldi	r25, 0x05	; 5
-     b78:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+     b78:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 					oled.OLED_Write_To_Bufer(x[pointer]+104,y,1,8,S);
      b7c:	4e 85       	ldd	r20, Y+14	; 0x0e
      b7e:	5f 85       	ldd	r21, Y+15	; 0x0f
@@ -1934,7 +1934,7 @@ Disassembly of section .text:
      b98:	30 e0       	ldi	r19, 0x00	; 0
      b9a:	83 e9       	ldi	r24, 0x93	; 147
      b9c:	95 e0       	ldi	r25, 0x05	; 5
-     b9e:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+     b9e:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 					break;
      ba2:	0e c2       	rjmp	.+1052   	; 0xfc0 <_ZN13Settings_Menu7actionsEv+0x6ec>
 				}
@@ -1974,7 +1974,7 @@ Disassembly of section .text:
      be0:	30 e0       	ldi	r19, 0x00	; 0
      be2:	83 e9       	ldi	r24, 0x93	; 147
      be4:	95 e0       	ldi	r25, 0x05	; 5
-     be6:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+     be6:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 					oled.OLED_Write_To_Bufer(x[pointer]+8,y,1,8,E);
      bea:	4e 85       	ldd	r20, Y+14	; 0x0e
      bec:	5f 85       	ldd	r21, Y+15	; 0x0f
@@ -1999,7 +1999,7 @@ Disassembly of section .text:
      c12:	30 e0       	ldi	r19, 0x00	; 0
      c14:	83 e9       	ldi	r24, 0x93	; 147
      c16:	95 e0       	ldi	r25, 0x05	; 5
-     c18:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+     c18:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 					oled.OLED_Write_To_Bufer(x[pointer]+16,y,1,8,S);
      c1c:	4e 85       	ldd	r20, Y+14	; 0x0e
      c1e:	5f 85       	ldd	r21, Y+15	; 0x0f
@@ -2024,7 +2024,7 @@ Disassembly of section .text:
      c44:	30 e0       	ldi	r19, 0x00	; 0
      c46:	83 e9       	ldi	r24, 0x93	; 147
      c48:	95 e0       	ldi	r25, 0x05	; 5
-     c4a:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+     c4a:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 					oled.OLED_Write_To_Bufer(x[pointer]+24,y,1,8,E);
      c4e:	4e 85       	ldd	r20, Y+14	; 0x0e
      c50:	5f 85       	ldd	r21, Y+15	; 0x0f
@@ -2049,7 +2049,7 @@ Disassembly of section .text:
      c76:	30 e0       	ldi	r19, 0x00	; 0
      c78:	83 e9       	ldi	r24, 0x93	; 147
      c7a:	95 e0       	ldi	r25, 0x05	; 5
-     c7c:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+     c7c:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 					oled.OLED_Write_To_Bufer(x[pointer]+32,y,1,8,T);
      c80:	4e 85       	ldd	r20, Y+14	; 0x0e
      c82:	5f 85       	ldd	r21, Y+15	; 0x0f
@@ -2074,7 +2074,7 @@ Disassembly of section .text:
      ca8:	30 e0       	ldi	r19, 0x00	; 0
      caa:	83 e9       	ldi	r24, 0x93	; 147
      cac:	95 e0       	ldi	r25, 0x05	; 5
-     cae:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+     cae:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 					oled.OLED_Write_To_Bufer(x[pointer]+48,y,1,8,D);
      cb2:	4e 85       	ldd	r20, Y+14	; 0x0e
      cb4:	5f 85       	ldd	r21, Y+15	; 0x0f
@@ -2099,7 +2099,7 @@ Disassembly of section .text:
      cda:	30 e0       	ldi	r19, 0x00	; 0
      cdc:	83 e9       	ldi	r24, 0x93	; 147
      cde:	95 e0       	ldi	r25, 0x05	; 5
-     ce0:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+     ce0:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 					oled.OLED_Write_To_Bufer(x[pointer]+56,y,1,8,E);
      ce4:	4e 85       	ldd	r20, Y+14	; 0x0e
      ce6:	5f 85       	ldd	r21, Y+15	; 0x0f
@@ -2124,7 +2124,7 @@ Disassembly of section .text:
      d0c:	30 e0       	ldi	r19, 0x00	; 0
      d0e:	83 e9       	ldi	r24, 0x93	; 147
      d10:	95 e0       	ldi	r25, 0x05	; 5
-     d12:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+     d12:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 					oled.OLED_Write_To_Bufer(x[pointer]+64,y,1,8,V);
      d16:	4e 85       	ldd	r20, Y+14	; 0x0e
      d18:	5f 85       	ldd	r21, Y+15	; 0x0f
@@ -2149,7 +2149,7 @@ Disassembly of section .text:
      d3e:	30 e0       	ldi	r19, 0x00	; 0
      d40:	83 e9       	ldi	r24, 0x93	; 147
      d42:	95 e0       	ldi	r25, 0x05	; 5
-     d44:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+     d44:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 					oled.OLED_Write_To_Bufer(x[pointer]+72,y,1,8,I);
      d48:	4e 85       	ldd	r20, Y+14	; 0x0e
      d4a:	5f 85       	ldd	r21, Y+15	; 0x0f
@@ -2174,7 +2174,7 @@ Disassembly of section .text:
      d70:	30 e0       	ldi	r19, 0x00	; 0
      d72:	83 e9       	ldi	r24, 0x93	; 147
      d74:	95 e0       	ldi	r25, 0x05	; 5
-     d76:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+     d76:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 					oled.OLED_Write_To_Bufer(x[pointer]+80,y,1,8,C);
      d7a:	4e 85       	ldd	r20, Y+14	; 0x0e
      d7c:	5f 85       	ldd	r21, Y+15	; 0x0f
@@ -2199,7 +2199,7 @@ Disassembly of section .text:
      da2:	30 e0       	ldi	r19, 0x00	; 0
      da4:	83 e9       	ldi	r24, 0x93	; 147
      da6:	95 e0       	ldi	r25, 0x05	; 5
-     da8:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+     da8:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 					oled.OLED_Write_To_Bufer(x[pointer]+88,y,1,8,E);
      dac:	4e 85       	ldd	r20, Y+14	; 0x0e
      dae:	5f 85       	ldd	r21, Y+15	; 0x0f
@@ -2224,7 +2224,7 @@ Disassembly of section .text:
      dd4:	30 e0       	ldi	r19, 0x00	; 0
      dd6:	83 e9       	ldi	r24, 0x93	; 147
      dd8:	95 e0       	ldi	r25, 0x05	; 5
-     dda:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+     dda:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 					break;
      dde:	f0 c0       	rjmp	.+480    	; 0xfc0 <_ZN13Settings_Menu7actionsEv+0x6ec>
 				}
@@ -2264,7 +2264,7 @@ Disassembly of section .text:
      e1c:	30 e0       	ldi	r19, 0x00	; 0
      e1e:	83 e9       	ldi	r24, 0x93	; 147
      e20:	95 e0       	ldi	r25, 0x05	; 5
-     e22:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+     e22:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 					oled.OLED_Write_To_Bufer(x[pointer]+8,y,1,8,D);
      e26:	4e 85       	ldd	r20, Y+14	; 0x0e
      e28:	5f 85       	ldd	r21, Y+15	; 0x0f
@@ -2289,7 +2289,7 @@ Disassembly of section .text:
      e4e:	30 e0       	ldi	r19, 0x00	; 0
      e50:	83 e9       	ldi	r24, 0x93	; 147
      e52:	95 e0       	ldi	r25, 0x05	; 5
-     e54:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+     e54:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 					oled.OLED_Write_To_Bufer(x[pointer]+16,y,1,8,D);
      e58:	4e 85       	ldd	r20, Y+14	; 0x0e
      e5a:	5f 85       	ldd	r21, Y+15	; 0x0f
@@ -2308,7 +2308,7 @@ Disassembly of section .text:
      e74:	30 e0       	ldi	r19, 0x00	; 0
      e76:	83 e9       	ldi	r24, 0x93	; 147
      e78:	95 e0       	ldi	r25, 0x05	; 5
-     e7a:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+     e7a:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 					oled.OLED_Write_To_Bufer(x[pointer]+32,y,1,8,O);
      e7e:	4e 85       	ldd	r20, Y+14	; 0x0e
      e80:	5f 85       	ldd	r21, Y+15	; 0x0f
@@ -2333,7 +2333,7 @@ Disassembly of section .text:
      ea6:	30 e0       	ldi	r19, 0x00	; 0
      ea8:	83 e9       	ldi	r24, 0x93	; 147
      eaa:	95 e0       	ldi	r25, 0x05	; 5
-     eac:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+     eac:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 					oled.OLED_Write_To_Bufer(x[pointer]+40,y,1,8,W);
      eb0:	4e 85       	ldd	r20, Y+14	; 0x0e
      eb2:	5f 85       	ldd	r21, Y+15	; 0x0f
@@ -2358,7 +2358,7 @@ Disassembly of section .text:
      ed8:	30 e0       	ldi	r19, 0x00	; 0
      eda:	83 e9       	ldi	r24, 0x93	; 147
      edc:	95 e0       	ldi	r25, 0x05	; 5
-     ede:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+     ede:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 					oled.OLED_Write_To_Bufer(x[pointer]+48,y,1,8,N);
      ee2:	4e 85       	ldd	r20, Y+14	; 0x0e
      ee4:	5f 85       	ldd	r21, Y+15	; 0x0f
@@ -2383,7 +2383,7 @@ Disassembly of section .text:
      f0a:	30 e0       	ldi	r19, 0x00	; 0
      f0c:	83 e9       	ldi	r24, 0x93	; 147
      f0e:	95 e0       	ldi	r25, 0x05	; 5
-     f10:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+     f10:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 					oled.OLED_Write_To_Bufer(x[pointer]+56,y,1,8,E);
      f14:	4e 85       	ldd	r20, Y+14	; 0x0e
      f16:	5f 85       	ldd	r21, Y+15	; 0x0f
@@ -2408,7 +2408,7 @@ Disassembly of section .text:
      f3c:	30 e0       	ldi	r19, 0x00	; 0
      f3e:	83 e9       	ldi	r24, 0x93	; 147
      f40:	95 e0       	ldi	r25, 0x05	; 5
-     f42:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+     f42:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 					oled.OLED_Write_To_Bufer(x[pointer]+64,y,1,8,R);
      f46:	4e 85       	ldd	r20, Y+14	; 0x0e
      f48:	5f 85       	ldd	r21, Y+15	; 0x0f
@@ -2433,7 +2433,7 @@ Disassembly of section .text:
      f6e:	30 e0       	ldi	r19, 0x00	; 0
      f70:	83 e9       	ldi	r24, 0x93	; 147
      f72:	95 e0       	ldi	r25, 0x05	; 5
-     f74:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+     f74:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 					break;
      f78:	23 c0       	rjmp	.+70     	; 0xfc0 <_ZN13Settings_Menu7actionsEv+0x6ec>
 				}
@@ -2474,7 +2474,7 @@ Disassembly of section .text:
      fb6:	30 e0       	ldi	r19, 0x00	; 0
      fb8:	83 e9       	ldi	r24, 0x93	; 147
      fba:	95 e0       	ldi	r25, 0x05	; 5
-     fbc:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+     fbc:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 					break;
 				}
 			}
@@ -2522,7 +2522,7 @@ Disassembly of section .text:
      ffa:	70 e0       	ldi	r23, 0x00	; 0
      ffc:	83 e9       	ldi	r24, 0x93	; 147
      ffe:	95 e0       	ldi	r25, 0x05	; 5
-    1000:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+    1000:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 		oled.OLED_Write_To_Bufer(56,y-2,2,8,upwd);
     1004:	4e 85       	ldd	r20, Y+14	; 0x0e
     1006:	5f 85       	ldd	r21, Y+15	; 0x0f
@@ -2540,7 +2540,7 @@ Disassembly of section .text:
     101e:	70 e0       	ldi	r23, 0x00	; 0
     1020:	83 e9       	ldi	r24, 0x93	; 147
     1022:	95 e0       	ldi	r25, 0x05	; 5
-    1024:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+    1024:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 	};
     1028:	df 91       	pop	r29
     102a:	cf 91       	pop	r28
@@ -2624,7 +2624,7 @@ Disassembly of section .text:
     10ac:	30 e0       	ldi	r19, 0x00	; 0
     10ae:	83 e9       	ldi	r24, 0x93	; 147
     10b0:	95 e0       	ldi	r25, 0x05	; 5
-    10b2:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+    10b2:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 				oled.OLED_Write_To_Bufer(x[pointer],y+2,1,8,downn);
     10b6:	4a 89       	ldd	r20, Y+18	; 0x12
     10b8:	5b 89       	ldd	r21, Y+19	; 0x13
@@ -2649,7 +2649,7 @@ Disassembly of section .text:
     10de:	30 e0       	ldi	r19, 0x00	; 0
     10e0:	83 e9       	ldi	r24, 0x93	; 147
     10e2:	95 e0       	ldi	r25, 0x05	; 5
-    10e4:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+    10e4:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 				oled.OLED_Write_To_Bufer(x[pointer],y-1,1,8,upp);
     10e8:	4a 89       	ldd	r20, Y+18	; 0x12
     10ea:	5b 89       	ldd	r21, Y+19	; 0x13
@@ -2674,7 +2674,7 @@ Disassembly of section .text:
     1110:	30 e0       	ldi	r19, 0x00	; 0
     1112:	83 e9       	ldi	r24, 0x93	; 147
     1114:	95 e0       	ldi	r25, 0x05	; 5
-    1116:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+    1116:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 				break;
     111a:	a1 c3       	rjmp	.+1858   	; 0x185e <_ZN13Password_Menu7actionsEv+0x828>
 			}
@@ -2721,7 +2721,7 @@ Disassembly of section .text:
     1166:	30 e0       	ldi	r19, 0x00	; 0
     1168:	83 e9       	ldi	r24, 0x93	; 147
     116a:	95 e0       	ldi	r25, 0x05	; 5
-    116c:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+    116c:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 				oled.OLED_Write_To_Bufer(x[pointer],y+2,1,8,downn);
     1170:	4a 89       	ldd	r20, Y+18	; 0x12
     1172:	5b 89       	ldd	r21, Y+19	; 0x13
@@ -2746,7 +2746,7 @@ Disassembly of section .text:
     1198:	30 e0       	ldi	r19, 0x00	; 0
     119a:	83 e9       	ldi	r24, 0x93	; 147
     119c:	95 e0       	ldi	r25, 0x05	; 5
-    119e:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+    119e:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 				oled.OLED_Write_To_Bufer(x[pointer],y-1,1,8,upp);
     11a2:	4a 89       	ldd	r20, Y+18	; 0x12
     11a4:	5b 89       	ldd	r21, Y+19	; 0x13
@@ -2771,7 +2771,7 @@ Disassembly of section .text:
     11ca:	30 e0       	ldi	r19, 0x00	; 0
     11cc:	83 e9       	ldi	r24, 0x93	; 147
     11ce:	95 e0       	ldi	r25, 0x05	; 5
-    11d0:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+    11d0:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 				break;
     11d4:	44 c3       	rjmp	.+1672   	; 0x185e <_ZN13Password_Menu7actionsEv+0x828>
 			}
@@ -2818,7 +2818,7 @@ Disassembly of section .text:
     1220:	30 e0       	ldi	r19, 0x00	; 0
     1222:	83 e9       	ldi	r24, 0x93	; 147
     1224:	95 e0       	ldi	r25, 0x05	; 5
-    1226:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+    1226:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 				oled.OLED_Write_To_Bufer(x[pointer],y+2,1,8,downn);
     122a:	4a 89       	ldd	r20, Y+18	; 0x12
     122c:	5b 89       	ldd	r21, Y+19	; 0x13
@@ -2843,7 +2843,7 @@ Disassembly of section .text:
     1252:	30 e0       	ldi	r19, 0x00	; 0
     1254:	83 e9       	ldi	r24, 0x93	; 147
     1256:	95 e0       	ldi	r25, 0x05	; 5
-    1258:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+    1258:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 				oled.OLED_Write_To_Bufer(x[pointer],y-1,1,8,upp);
     125c:	4a 89       	ldd	r20, Y+18	; 0x12
     125e:	5b 89       	ldd	r21, Y+19	; 0x13
@@ -2868,7 +2868,7 @@ Disassembly of section .text:
     1284:	30 e0       	ldi	r19, 0x00	; 0
     1286:	83 e9       	ldi	r24, 0x93	; 147
     1288:	95 e0       	ldi	r25, 0x05	; 5
-    128a:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+    128a:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 				break;
     128e:	e7 c2       	rjmp	.+1486   	; 0x185e <_ZN13Password_Menu7actionsEv+0x828>
 			}
@@ -2915,7 +2915,7 @@ Disassembly of section .text:
     12da:	30 e0       	ldi	r19, 0x00	; 0
     12dc:	83 e9       	ldi	r24, 0x93	; 147
     12de:	95 e0       	ldi	r25, 0x05	; 5
-    12e0:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+    12e0:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 				oled.OLED_Write_To_Bufer(x[pointer],y+2,1,8,downn);
     12e4:	4a 89       	ldd	r20, Y+18	; 0x12
     12e6:	5b 89       	ldd	r21, Y+19	; 0x13
@@ -2940,7 +2940,7 @@ Disassembly of section .text:
     130c:	30 e0       	ldi	r19, 0x00	; 0
     130e:	83 e9       	ldi	r24, 0x93	; 147
     1310:	95 e0       	ldi	r25, 0x05	; 5
-    1312:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+    1312:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 				oled.OLED_Write_To_Bufer(x[pointer],y-1,1,8,upp);
     1316:	4a 89       	ldd	r20, Y+18	; 0x12
     1318:	5b 89       	ldd	r21, Y+19	; 0x13
@@ -2965,7 +2965,7 @@ Disassembly of section .text:
     133e:	30 e0       	ldi	r19, 0x00	; 0
     1340:	83 e9       	ldi	r24, 0x93	; 147
     1342:	95 e0       	ldi	r25, 0x05	; 5
-    1344:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+    1344:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 				break;
     1348:	8a c2       	rjmp	.+1300   	; 0x185e <_ZN13Password_Menu7actionsEv+0x828>
 			}
@@ -3012,7 +3012,7 @@ Disassembly of section .text:
     1394:	30 e0       	ldi	r19, 0x00	; 0
     1396:	83 e9       	ldi	r24, 0x93	; 147
     1398:	95 e0       	ldi	r25, 0x05	; 5
-    139a:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+    139a:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 				oled.OLED_Write_To_Bufer(x[pointer],y+2,1,8,downn);
     139e:	4a 89       	ldd	r20, Y+18	; 0x12
     13a0:	5b 89       	ldd	r21, Y+19	; 0x13
@@ -3037,7 +3037,7 @@ Disassembly of section .text:
     13c6:	30 e0       	ldi	r19, 0x00	; 0
     13c8:	83 e9       	ldi	r24, 0x93	; 147
     13ca:	95 e0       	ldi	r25, 0x05	; 5
-    13cc:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+    13cc:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 				oled.OLED_Write_To_Bufer(x[pointer],y-1,1,8,upp);
     13d0:	4a 89       	ldd	r20, Y+18	; 0x12
     13d2:	5b 89       	ldd	r21, Y+19	; 0x13
@@ -3062,7 +3062,7 @@ Disassembly of section .text:
     13f8:	30 e0       	ldi	r19, 0x00	; 0
     13fa:	83 e9       	ldi	r24, 0x93	; 147
     13fc:	95 e0       	ldi	r25, 0x05	; 5
-    13fe:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+    13fe:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 				break;
     1402:	2d c2       	rjmp	.+1114   	; 0x185e <_ZN13Password_Menu7actionsEv+0x828>
 			}
@@ -3109,7 +3109,7 @@ Disassembly of section .text:
     144e:	30 e0       	ldi	r19, 0x00	; 0
     1450:	83 e9       	ldi	r24, 0x93	; 147
     1452:	95 e0       	ldi	r25, 0x05	; 5
-    1454:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+    1454:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 				oled.OLED_Write_To_Bufer(x[pointer],y+2,1,8,downn);
     1458:	4a 89       	ldd	r20, Y+18	; 0x12
     145a:	5b 89       	ldd	r21, Y+19	; 0x13
@@ -3134,7 +3134,7 @@ Disassembly of section .text:
     1480:	30 e0       	ldi	r19, 0x00	; 0
     1482:	83 e9       	ldi	r24, 0x93	; 147
     1484:	95 e0       	ldi	r25, 0x05	; 5
-    1486:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+    1486:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 				oled.OLED_Write_To_Bufer(x[pointer],y-1,1,8,upp);
     148a:	4a 89       	ldd	r20, Y+18	; 0x12
     148c:	5b 89       	ldd	r21, Y+19	; 0x13
@@ -3159,7 +3159,7 @@ Disassembly of section .text:
     14b2:	30 e0       	ldi	r19, 0x00	; 0
     14b4:	83 e9       	ldi	r24, 0x93	; 147
     14b6:	95 e0       	ldi	r25, 0x05	; 5
-    14b8:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+    14b8:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 				break;
     14bc:	d0 c1       	rjmp	.+928    	; 0x185e <_ZN13Password_Menu7actionsEv+0x828>
 			}
@@ -3206,7 +3206,7 @@ Disassembly of section .text:
     1508:	30 e0       	ldi	r19, 0x00	; 0
     150a:	83 e9       	ldi	r24, 0x93	; 147
     150c:	95 e0       	ldi	r25, 0x05	; 5
-    150e:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+    150e:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 				oled.OLED_Write_To_Bufer(x[pointer],y+2,1,8,downn);
     1512:	4a 89       	ldd	r20, Y+18	; 0x12
     1514:	5b 89       	ldd	r21, Y+19	; 0x13
@@ -3231,7 +3231,7 @@ Disassembly of section .text:
     153a:	30 e0       	ldi	r19, 0x00	; 0
     153c:	83 e9       	ldi	r24, 0x93	; 147
     153e:	95 e0       	ldi	r25, 0x05	; 5
-    1540:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+    1540:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 				oled.OLED_Write_To_Bufer(x[pointer],y-1,1,8,upp);
     1544:	4a 89       	ldd	r20, Y+18	; 0x12
     1546:	5b 89       	ldd	r21, Y+19	; 0x13
@@ -3256,7 +3256,7 @@ Disassembly of section .text:
     156c:	30 e0       	ldi	r19, 0x00	; 0
     156e:	83 e9       	ldi	r24, 0x93	; 147
     1570:	95 e0       	ldi	r25, 0x05	; 5
-    1572:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+    1572:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 				break;
     1576:	73 c1       	rjmp	.+742    	; 0x185e <_ZN13Password_Menu7actionsEv+0x828>
 			}
@@ -3303,7 +3303,7 @@ Disassembly of section .text:
     15c2:	30 e0       	ldi	r19, 0x00	; 0
     15c4:	83 e9       	ldi	r24, 0x93	; 147
     15c6:	95 e0       	ldi	r25, 0x05	; 5
-    15c8:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+    15c8:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 				oled.OLED_Write_To_Bufer(x[pointer],y+2,1,8,downn);
     15cc:	4a 89       	ldd	r20, Y+18	; 0x12
     15ce:	5b 89       	ldd	r21, Y+19	; 0x13
@@ -3328,7 +3328,7 @@ Disassembly of section .text:
     15f4:	30 e0       	ldi	r19, 0x00	; 0
     15f6:	83 e9       	ldi	r24, 0x93	; 147
     15f8:	95 e0       	ldi	r25, 0x05	; 5
-    15fa:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+    15fa:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 				oled.OLED_Write_To_Bufer(x[pointer],y-1,1,8,upp);
     15fe:	4a 89       	ldd	r20, Y+18	; 0x12
     1600:	5b 89       	ldd	r21, Y+19	; 0x13
@@ -3353,7 +3353,7 @@ Disassembly of section .text:
     1626:	30 e0       	ldi	r19, 0x00	; 0
     1628:	83 e9       	ldi	r24, 0x93	; 147
     162a:	95 e0       	ldi	r25, 0x05	; 5
-    162c:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+    162c:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 				break;
     1630:	16 c1       	rjmp	.+556    	; 0x185e <_ZN13Password_Menu7actionsEv+0x828>
 			}
@@ -3400,7 +3400,7 @@ Disassembly of section .text:
     167c:	30 e0       	ldi	r19, 0x00	; 0
     167e:	83 e9       	ldi	r24, 0x93	; 147
     1680:	95 e0       	ldi	r25, 0x05	; 5
-    1682:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+    1682:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 				oled.OLED_Write_To_Bufer(x[pointer],y+2,1,8,downn);
     1686:	4a 89       	ldd	r20, Y+18	; 0x12
     1688:	5b 89       	ldd	r21, Y+19	; 0x13
@@ -3425,7 +3425,7 @@ Disassembly of section .text:
     16ae:	30 e0       	ldi	r19, 0x00	; 0
     16b0:	83 e9       	ldi	r24, 0x93	; 147
     16b2:	95 e0       	ldi	r25, 0x05	; 5
-    16b4:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+    16b4:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 				oled.OLED_Write_To_Bufer(x[pointer],y-1,1,8,upp);
     16b8:	4a 89       	ldd	r20, Y+18	; 0x12
     16ba:	5b 89       	ldd	r21, Y+19	; 0x13
@@ -3450,7 +3450,7 @@ Disassembly of section .text:
     16e0:	30 e0       	ldi	r19, 0x00	; 0
     16e2:	83 e9       	ldi	r24, 0x93	; 147
     16e4:	95 e0       	ldi	r25, 0x05	; 5
-    16e6:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+    16e6:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 				break;
     16ea:	b9 c0       	rjmp	.+370    	; 0x185e <_ZN13Password_Menu7actionsEv+0x828>
 			}
@@ -3497,7 +3497,7 @@ Disassembly of section .text:
     1736:	30 e0       	ldi	r19, 0x00	; 0
     1738:	83 e9       	ldi	r24, 0x93	; 147
     173a:	95 e0       	ldi	r25, 0x05	; 5
-    173c:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+    173c:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 				oled.OLED_Write_To_Bufer(x[pointer],y+2,1,8,downn);
     1740:	4a 89       	ldd	r20, Y+18	; 0x12
     1742:	5b 89       	ldd	r21, Y+19	; 0x13
@@ -3522,7 +3522,7 @@ Disassembly of section .text:
     1768:	30 e0       	ldi	r19, 0x00	; 0
     176a:	83 e9       	ldi	r24, 0x93	; 147
     176c:	95 e0       	ldi	r25, 0x05	; 5
-    176e:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+    176e:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 				oled.OLED_Write_To_Bufer(x[pointer],y-1,1,8,upp);
     1772:	4a 89       	ldd	r20, Y+18	; 0x12
     1774:	5b 89       	ldd	r21, Y+19	; 0x13
@@ -3547,7 +3547,7 @@ Disassembly of section .text:
     179a:	30 e0       	ldi	r19, 0x00	; 0
     179c:	83 e9       	ldi	r24, 0x93	; 147
     179e:	95 e0       	ldi	r25, 0x05	; 5
-    17a0:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+    17a0:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 				break;
     17a4:	5c c0       	rjmp	.+184    	; 0x185e <_ZN13Password_Menu7actionsEv+0x828>
 			}
@@ -3594,7 +3594,7 @@ Disassembly of section .text:
     17f0:	30 e0       	ldi	r19, 0x00	; 0
     17f2:	83 e9       	ldi	r24, 0x93	; 147
     17f4:	95 e0       	ldi	r25, 0x05	; 5
-    17f6:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+    17f6:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 				oled.OLED_Write_To_Bufer(x[pointer],y+2,1,8,downn);
     17fa:	4a 89       	ldd	r20, Y+18	; 0x12
     17fc:	5b 89       	ldd	r21, Y+19	; 0x13
@@ -3619,7 +3619,7 @@ Disassembly of section .text:
     1822:	30 e0       	ldi	r19, 0x00	; 0
     1824:	83 e9       	ldi	r24, 0x93	; 147
     1826:	95 e0       	ldi	r25, 0x05	; 5
-    1828:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+    1828:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 				oled.OLED_Write_To_Bufer(x[pointer],y-1,1,8,upp);
     182c:	4a 89       	ldd	r20, Y+18	; 0x12
     182e:	5b 89       	ldd	r21, Y+19	; 0x13
@@ -3644,7 +3644,7 @@ Disassembly of section .text:
     1854:	30 e0       	ldi	r19, 0x00	; 0
     1856:	83 e9       	ldi	r24, 0x93	; 147
     1858:	95 e0       	ldi	r25, 0x05	; 5
-    185a:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+    185a:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 				break;
 			}
 		}
@@ -3692,7 +3692,7 @@ Disassembly of section .text:
     1898:	30 e0       	ldi	r19, 0x00	; 0
     189a:	83 e9       	ldi	r24, 0x93	; 147
     189c:	95 e0       	ldi	r25, 0x05	; 5
-    189e:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+    189e:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 		oled.OLED_Write_To_Bufer(x[1],y+1,1,8,line);
     18a2:	4a 89       	ldd	r20, Y+18	; 0x12
     18a4:	5b 89       	ldd	r21, Y+19	; 0x13
@@ -3704,7 +3704,7 @@ Disassembly of section .text:
     18b0:	30 e0       	ldi	r19, 0x00	; 0
     18b2:	83 e9       	ldi	r24, 0x93	; 147
     18b4:	95 e0       	ldi	r25, 0x05	; 5
-    18b6:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+    18b6:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 		oled.OLED_Write_To_Bufer(x[2],y+1,1,8,line);
     18ba:	4a 89       	ldd	r20, Y+18	; 0x12
     18bc:	5b 89       	ldd	r21, Y+19	; 0x13
@@ -3716,7 +3716,7 @@ Disassembly of section .text:
     18c8:	30 e0       	ldi	r19, 0x00	; 0
     18ca:	83 e9       	ldi	r24, 0x93	; 147
     18cc:	95 e0       	ldi	r25, 0x05	; 5
-    18ce:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+    18ce:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 		oled.OLED_Write_To_Bufer(x[3],y+1,1,8,line);
     18d2:	4a 89       	ldd	r20, Y+18	; 0x12
     18d4:	5b 89       	ldd	r21, Y+19	; 0x13
@@ -3728,7 +3728,7 @@ Disassembly of section .text:
     18e0:	30 e0       	ldi	r19, 0x00	; 0
     18e2:	83 e9       	ldi	r24, 0x93	; 147
     18e4:	95 e0       	ldi	r25, 0x05	; 5
-    18e6:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+    18e6:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 		oled.OLED_Write_To_Bufer(x[4],y+1,1,8,line);
     18ea:	4a 89       	ldd	r20, Y+18	; 0x12
     18ec:	5b 89       	ldd	r21, Y+19	; 0x13
@@ -3740,7 +3740,7 @@ Disassembly of section .text:
     18f8:	30 e0       	ldi	r19, 0x00	; 0
     18fa:	83 e9       	ldi	r24, 0x93	; 147
     18fc:	95 e0       	ldi	r25, 0x05	; 5
-    18fe:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+    18fe:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 	};
     1902:	df 91       	pop	r29
     1904:	cf 91       	pop	r28
@@ -3809,7 +3809,7 @@ Disassembly of section .text:
     1968:	70 e0       	ldi	r23, 0x00	; 0
     196a:	83 e9       	ldi	r24, 0x93	; 147
     196c:	95 e0       	ldi	r25, 0x05	; 5
-    196e:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+    196e:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
     1972:	4a c0       	rjmp	.+148    	; 0x1a08 <_ZN9Main_Menu7actionsEv+0xf8>
 				else oled.OLED_Write_To_Bufer(MAIN_MENU_IMG_X,MAIN_MENU_IMG_Y,4,32,lock);
     1974:	0f 2e       	mov	r0, r31
@@ -3828,7 +3828,7 @@ Disassembly of section .text:
     198e:	70 e0       	ldi	r23, 0x00	; 0
     1990:	83 e9       	ldi	r24, 0x93	; 147
     1992:	95 e0       	ldi	r25, 0x05	; 5
-    1994:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+    1994:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
     1998:	37 c0       	rjmp	.+110    	; 0x1a08 <_ZN9Main_Menu7actionsEv+0xf8>
 				break;
 			}
@@ -3861,7 +3861,7 @@ Disassembly of section .text:
     19c6:	70 e0       	ldi	r23, 0x00	; 0
     19c8:	83 e9       	ldi	r24, 0x93	; 147
     19ca:	95 e0       	ldi	r25, 0x05	; 5
-    19cc:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+    19cc:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 				break;
     19d0:	1b c0       	rjmp	.+54     	; 0x1a08 <_ZN9Main_Menu7actionsEv+0xf8>
 			}
@@ -3894,7 +3894,7 @@ Disassembly of section .text:
     19fe:	70 e0       	ldi	r23, 0x00	; 0
     1a00:	83 e9       	ldi	r24, 0x93	; 147
     1a02:	95 e0       	ldi	r25, 0x05	; 5
-    1a04:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+    1a04:	0e 94 19 15 	call	0x2a32	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 				break;
 			}	
 		}
@@ -3934,7 +3934,7 @@ Disassembly of section .text:
     1a34:	70 e0       	ldi	r23, 0x00	; 0
     1a36:	83 e9       	ldi	r24, 0x93	; 147
     1a38:	95 e0       	ldi	r25, 0x05	; 5
-    1a3a:	fb d7       	rcall	.+4086   	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+    1a3a:	fb d7       	rcall	.+4086   	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 		oled.OLED_Write_To_Bufer(MAIN_MENU_IMG_X+56,MAIN_MENU_IMG_Y+1,1,16,rt);
     1a3c:	0f 2e       	mov	r0, r31
     1a3e:	f9 ee       	ldi	r31, 0xE9	; 233
@@ -3950,7 +3950,7 @@ Disassembly of section .text:
     1a52:	70 e0       	ldi	r23, 0x00	; 0
     1a54:	83 e9       	ldi	r24, 0x93	; 147
     1a56:	95 e0       	ldi	r25, 0x05	; 5
-    1a58:	ec d7       	rcall	.+4056   	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+    1a58:	ec d7       	rcall	.+4056   	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
     };
     1a5a:	1f 91       	pop	r17
     1a5c:	0f 91       	pop	r16
@@ -4219,7 +4219,7 @@ void check()
     1bfe:	70 e0       	ldi	r23, 0x00	; 0
     1c00:	83 e9       	ldi	r24, 0x93	; 147
     1c02:	95 e0       	ldi	r25, 0x05	; 5
-    1c04:	16 d7       	rcall	.+3628   	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+    1c04:	16 d7       	rcall	.+3628   	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 		if (Password_Menu_Status)
     1c06:	80 91 92 05 	lds	r24, 0x0592	; 0x800592 <Password_Menu_Status>
     1c0a:	88 23       	and	r24, r24
@@ -4388,7 +4388,7 @@ void check()
     1d00:	70 e0       	ldi	r23, 0x00	; 0
     1d02:	83 e9       	ldi	r24, 0x93	; 147
     1d04:	95 e0       	ldi	r25, 0x05	; 5
-    1d06:	95 d6       	rcall	.+3370   	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+    1d06:	95 d6       	rcall	.+3370   	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 		if (Password_Menu_Status)
     1d08:	80 91 92 05 	lds	r24, 0x0592	; 0x800592 <Password_Menu_Status>
     1d0c:	88 23       	and	r24, r24
@@ -5329,7 +5329,7 @@ void check()
     22b8:	70 e0       	ldi	r23, 0x00	; 0
     22ba:	83 e9       	ldi	r24, 0x93	; 147
     22bc:	95 e0       	ldi	r25, 0x05	; 5
-    22be:	b9 d3       	rcall	.+1906   	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+    22be:	b9 d3       	rcall	.+1906   	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
     22c0:	be c0       	rjmp	.+380    	; 0x243e <_Z5checkv+0x8f2>
 		{
 
@@ -5371,7 +5371,7 @@ void check()
     22fa:	70 e0       	ldi	r23, 0x00	; 0
     22fc:	83 e9       	ldi	r24, 0x93	; 147
     22fe:	95 e0       	ldi	r25, 0x05	; 5
-    2300:	98 d3       	rcall	.+1840   	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+    2300:	98 d3       	rcall	.+1840   	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
     2302:	80 91 92 05 	lds	r24, 0x0592	; 0x800592 <Password_Menu_Status>
 		if (Password_Menu_Status)
     2306:	88 23       	and	r24, r24
@@ -5538,7 +5538,7 @@ void check()
     23f8:	70 e0       	ldi	r23, 0x00	; 0
     23fa:	83 e9       	ldi	r24, 0x93	; 147
     23fc:	95 e0       	ldi	r25, 0x05	; 5
-    23fe:	19 d3       	rcall	.+1586   	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+    23fe:	19 d3       	rcall	.+1586   	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 		{
 
 
@@ -5578,7 +5578,7 @@ void check()
     2436:	70 e0       	ldi	r23, 0x00	; 0
     2438:	83 e9       	ldi	r24, 0x93	; 147
     243a:	95 e0       	ldi	r25, 0x05	; 5
-    243c:	fa d2       	rcall	.+1524   	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+    243c:	fa d2       	rcall	.+1524   	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
     243e:	10 92 65 05 	sts	0x0565, r1	; 0x800565 <btn0>
 		{
 			//sett_menu.choise();
@@ -5663,7 +5663,7 @@ void printlvltoOLEDbufer()
     24a8:	70 e0       	ldi	r23, 0x00	; 0
     24aa:	83 e9       	ldi	r24, 0x93	; 147
     24ac:	95 e0       	ldi	r25, 0x05	; 5
-    24ae:	c1 d2       	rcall	.+1410   	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+    24ae:	c1 d2       	rcall	.+1410   	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 	if(curlvl==1) oled.OLED_Write_To_Bufer(96,0,4,8,batary4);
     24b0:	88 81       	ld	r24, Y
     24b2:	99 81       	ldd	r25, Y+1	; 0x01
@@ -5685,7 +5685,7 @@ void printlvltoOLEDbufer()
     24d2:	70 e0       	ldi	r23, 0x00	; 0
     24d4:	83 e9       	ldi	r24, 0x93	; 147
     24d6:	95 e0       	ldi	r25, 0x05	; 5
-    24d8:	ac d2       	rcall	.+1368   	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+    24d8:	ac d2       	rcall	.+1368   	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 	if(curlvl==2) oled.OLED_Write_To_Bufer(96,0,4,8,batary3);
     24da:	88 81       	ld	r24, Y
     24dc:	99 81       	ldd	r25, Y+1	; 0x01
@@ -5707,7 +5707,7 @@ void printlvltoOLEDbufer()
     24fc:	70 e0       	ldi	r23, 0x00	; 0
     24fe:	83 e9       	ldi	r24, 0x93	; 147
     2500:	95 e0       	ldi	r25, 0x05	; 5
-    2502:	97 d2       	rcall	.+1326   	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+    2502:	97 d2       	rcall	.+1326   	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 	if(curlvl==3) oled.OLED_Write_To_Bufer(96,0,4,8,batary2);
     2504:	88 81       	ld	r24, Y
     2506:	99 81       	ldd	r25, Y+1	; 0x01
@@ -5729,7 +5729,7 @@ void printlvltoOLEDbufer()
     2526:	70 e0       	ldi	r23, 0x00	; 0
     2528:	83 e9       	ldi	r24, 0x93	; 147
     252a:	95 e0       	ldi	r25, 0x05	; 5
-    252c:	82 d2       	rcall	.+1284   	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+    252c:	82 d2       	rcall	.+1284   	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 	if(curlvl==4) oled.OLED_Write_To_Bufer(96,0,4,8,batary1);
     252e:	88 81       	ld	r24, Y
     2530:	99 81       	ldd	r25, Y+1	; 0x01
@@ -5751,7 +5751,7 @@ void printlvltoOLEDbufer()
     2550:	70 e0       	ldi	r23, 0x00	; 0
     2552:	83 e9       	ldi	r24, 0x93	; 147
     2554:	95 e0       	ldi	r25, 0x05	; 5
-    2556:	6d d2       	rcall	.+1242   	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+    2556:	6d d2       	rcall	.+1242   	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 }
     2558:	df 91       	pop	r29
     255a:	cf 91       	pop	r28
@@ -5786,50 +5786,49 @@ int main(void){
     257a:	80 81       	ld	r24, Z
     257c:	81 60       	ori	r24, 0x01	; 1
     257e:	80 83       	st	Z, r24
-		sei();
-    2580:	78 94       	sei
 	};
 	
 	void refresh() override
 	{
 		//oled.OLED_Bufer_Clear();
 		Default();
-    2582:	0f 2e       	mov	r0, r31
-    2584:	f0 e8       	ldi	r31, 0x80	; 128
-    2586:	8f 2e       	mov	r8, r31
-    2588:	f5 e0       	ldi	r31, 0x05	; 5
-    258a:	9f 2e       	mov	r9, r31
-    258c:	f0 2d       	mov	r31, r0
+    2580:	0f 2e       	mov	r0, r31
+    2582:	f0 e8       	ldi	r31, 0x80	; 128
+    2584:	8f 2e       	mov	r8, r31
+    2586:	f5 e0       	ldi	r31, 0x05	; 5
+    2588:	9f 2e       	mov	r9, r31
+    258a:	f0 2d       	mov	r31, r0
     };
 	
     void refresh() override
 	{
 		//oled.OLED_Bufer_Clear();
 		Default();
-    258e:	0f 2e       	mov	r0, r31
-    2590:	f6 e6       	ldi	r31, 0x66	; 102
-    2592:	af 2e       	mov	r10, r31
-    2594:	f5 e0       	ldi	r31, 0x05	; 5
-    2596:	bf 2e       	mov	r11, r31
-    2598:	f0 2d       	mov	r31, r0
+    258c:	0f 2e       	mov	r0, r31
+    258e:	f6 e6       	ldi	r31, 0x66	; 102
+    2590:	af 2e       	mov	r10, r31
+    2592:	f5 e0       	ldi	r31, 0x05	; 5
+    2594:	bf 2e       	mov	r11, r31
+    2596:	f0 2d       	mov	r31, r0
 	};
 	
 	void refresh() override
 	{
 				//oled.OLED_Bufer_Clear();
 				Default();
-    259a:	0f 2e       	mov	r0, r31
-    259c:	fc e6       	ldi	r31, 0x6C	; 108
-    259e:	cf 2e       	mov	r12, r31
-    25a0:	f5 e0       	ldi	r31, 0x05	; 5
-    25a2:	df 2e       	mov	r13, r31
-		PCMSK0=0b00111100;
-		PCICR|=0b00000001;
-		sei();
+    2598:	0f 2e       	mov	r0, r31
+    259a:	fc e6       	ldi	r31, 0x6C	; 108
+    259c:	cf 2e       	mov	r12, r31
+    259e:	f5 e0       	ldi	r31, 0x05	; 5
+    25a0:	df 2e       	mov	r13, r31
+    25a2:	f0 2d       	mov	r31, r0
+		
+		int i=0;
 	while(1)
 	{
+		sei();
 		check();
-    25a4:	f0 2d       	mov	r31, r0
+    25a4:	78 94       	sei
     25a6:	d2 da       	rcall	.-2652   	; 0x1b4c <_Z5checkv>
 		if (Password_Menu_Status)
     25a8:	80 91 92 05 	lds	r24, 0x0592	; 0x800592 <Password_Menu_Status>
@@ -5978,7 +5977,7 @@ void printlvltoOLEDbufer()
     2662:	70 e0       	ldi	r23, 0x00	; 0
     2664:	83 e9       	ldi	r24, 0x93	; 147
     2666:	95 e0       	ldi	r25, 0x05	; 5
-    2668:	e4 d1       	rcall	.+968    	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+    2668:	e4 d1       	rcall	.+968    	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 	if(curlvl==1) oled.OLED_Write_To_Bufer(96,0,4,8,batary4);
     266a:	80 91 5e 05 	lds	r24, 0x055E	; 0x80055e <__data_end>
     266e:	90 91 5f 05 	lds	r25, 0x055F	; 0x80055f <__data_end+0x1>
@@ -6000,7 +5999,7 @@ void printlvltoOLEDbufer()
     2690:	70 e0       	ldi	r23, 0x00	; 0
     2692:	83 e9       	ldi	r24, 0x93	; 147
     2694:	95 e0       	ldi	r25, 0x05	; 5
-    2696:	cd d1       	rcall	.+922    	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+    2696:	cd d1       	rcall	.+922    	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 	if(curlvl==2) oled.OLED_Write_To_Bufer(96,0,4,8,batary3);
     2698:	80 91 5e 05 	lds	r24, 0x055E	; 0x80055e <__data_end>
     269c:	90 91 5f 05 	lds	r25, 0x055F	; 0x80055f <__data_end+0x1>
@@ -6022,7 +6021,7 @@ void printlvltoOLEDbufer()
     26be:	70 e0       	ldi	r23, 0x00	; 0
     26c0:	83 e9       	ldi	r24, 0x93	; 147
     26c2:	95 e0       	ldi	r25, 0x05	; 5
-    26c4:	b6 d1       	rcall	.+876    	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+    26c4:	b6 d1       	rcall	.+876    	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 	if(curlvl==3) oled.OLED_Write_To_Bufer(96,0,4,8,batary2);
     26c6:	80 91 5e 05 	lds	r24, 0x055E	; 0x80055e <__data_end>
     26ca:	90 91 5f 05 	lds	r25, 0x055F	; 0x80055f <__data_end+0x1>
@@ -6044,7 +6043,7 @@ void printlvltoOLEDbufer()
     26ec:	70 e0       	ldi	r23, 0x00	; 0
     26ee:	83 e9       	ldi	r24, 0x93	; 147
     26f0:	95 e0       	ldi	r25, 0x05	; 5
-    26f2:	9f d1       	rcall	.+830    	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+    26f2:	9f d1       	rcall	.+830    	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 	if(curlvl==4) oled.OLED_Write_To_Bufer(96,0,4,8,batary1);
     26f4:	80 91 5e 05 	lds	r24, 0x055E	; 0x80055e <__data_end>
     26f8:	90 91 5f 05 	lds	r25, 0x055F	; 0x80055f <__data_end+0x1>
@@ -6066,7 +6065,7 @@ void printlvltoOLEDbufer()
     271a:	70 e0       	ldi	r23, 0x00	; 0
     271c:	83 e9       	ldi	r24, 0x93	; 147
     271e:	95 e0       	ldi	r25, 0x05	; 5
-    2720:	88 d1       	rcall	.+784    	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+    2720:	88 d1       	rcall	.+784    	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
 		else if (Settings_Menu_Status)
 		{
 			sett_menu.refresh();
@@ -6090,33 +6089,33 @@ void printlvltoOLEDbufer()
     273e:	83 e9       	ldi	r24, 0x93	; 147
     2740:	95 e0       	ldi	r25, 0x05	; 5
 		oled.OLED_Write_Bufer();
-    2742:	77 d1       	rcall	.+750    	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>
+    2742:	77 d1       	rcall	.+750    	; 0x2a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>
     2744:	83 e9       	ldi	r24, 0x93	; 147
     2746:	95 e0       	ldi	r25, 0x05	; 5
     2748:	7b d0       	rcall	.+246    	; 0x2840 <_ZN4OLED16OLED_Write_BuferEv>
-		DDRA = 0x00;
 		PORTA=0x00;
 		PCMSK0=0b00111100;
 		PCICR|=0b00000001;
-		sei();
+		
+		int i=0;
 	while(1)
-    274a:	2d cf       	rjmp	.-422    	; 0x25a6 <main+0x40>
+    274a:	2c cf       	rjmp	.-424    	; 0x25a4 <main+0x3e>
 
 0000274c <_GLOBAL__sub_I_zero>:
-		}
 		batary.refresh();
 		oled.OLED_Write_To_Bufer(80,0,2,8,Net0);
 		oled.OLED_Write_Bufer();
+		i++;
 	}
 }
     274c:	0f 93       	push	r16
     274e:	1f 93       	push	r17
     2750:	cf 93       	push	r28
     2752:	df 93       	push	r29
-#include "Defines.h"
 #include "Images.h"
 #include "TWI.h"
 #include "OLED.h"
+
 
 TWI wire;
     2754:	84 e9       	ldi	r24, 0x94	; 148
@@ -6246,10 +6245,10 @@ Batary()
     27ee:	8e e5       	ldi	r24, 0x5E	; 94
     27f0:	95 e0       	ldi	r25, 0x05	; 5
     27f2:	42 de       	rcall	.-892    	; 0x2478 <_ZN6Batary19printlvltoOLEDbuferEv>
-		}
 		batary.refresh();
 		oled.OLED_Write_To_Bufer(80,0,2,8,Net0);
 		oled.OLED_Write_Bufer();
+		i++;
 	}
 }
     27f4:	df 91       	pop	r29
@@ -6682,9 +6681,9 @@ Batary()
     2a2e:	cf 90       	pop	r12
     2a30:	08 95       	ret
 
-00002a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh>:
+00002a32 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh>:
 
-	void OLED::OLED_Write_To_Bufer(int x,int y,int width,int height,uint8_t* img)
+	void OLED::OLED_Write_To_Bufer(int x,int y,int width,int height,const uint8_t* img)
 	{
     2a32:	2f 92       	push	r2
     2a34:	3f 92       	push	r3
@@ -6704,9 +6703,9 @@ Batary()
     2a50:	1f 93       	push	r17
     2a52:	cf 93       	push	r28
     2a54:	df 93       	push	r29
-    2a56:	00 d0       	rcall	.+0      	; 0x2a58 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh+0x26>
-    2a58:	00 d0       	rcall	.+0      	; 0x2a5a <_ZN4OLED19OLED_Write_To_BuferEiiiiPh+0x28>
-    2a5a:	00 d0       	rcall	.+0      	; 0x2a5c <_ZN4OLED19OLED_Write_To_BuferEiiiiPh+0x2a>
+    2a56:	00 d0       	rcall	.+0      	; 0x2a58 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh+0x26>
+    2a58:	00 d0       	rcall	.+0      	; 0x2a5a <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh+0x28>
+    2a5a:	00 d0       	rcall	.+0      	; 0x2a5c <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh+0x2a>
     2a5c:	cd b7       	in	r28, 0x3d	; 61
     2a5e:	de b7       	in	r29, 0x3e	; 62
     2a60:	9e 83       	std	Y+6, r25	; 0x06
@@ -6717,8 +6716,8 @@ Batary()
 		for(int j=0;j<height;j++)
     2a6a:	10 16       	cp	r1, r16
     2a6c:	11 06       	cpc	r1, r17
-    2a6e:	0c f0       	brlt	.+2      	; 0x2a72 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh+0x40>
-    2a70:	74 c0       	rjmp	.+232    	; 0x2b5a <_ZN4OLED19OLED_Write_To_BuferEiiiiPh+0x128>
+    2a6e:	0c f0       	brlt	.+2      	; 0x2a72 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh+0x40>
+    2a70:	74 c0       	rjmp	.+232    	; 0x2b5a <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh+0x128>
     2a72:	3c 83       	std	Y+4, r19	; 0x04
     2a74:	2b 83       	std	Y+3, r18	; 0x03
     2a76:	8e 2c       	mov	r8, r14
@@ -6748,7 +6747,7 @@ Batary()
     2a9a:	39 1f       	adc	r19, r25
     2a9c:	3a 83       	std	Y+2, r19	; 0x02
     2a9e:	29 83       	std	Y+1, r18	; 0x01
-	void OLED::OLED_Write_To_Bufer(int x,int y,int width,int height,uint8_t* img)
+	void OLED::OLED_Write_To_Bufer(int x,int y,int width,int height,const uint8_t* img)
 	{
 		for(int j=0;j<height;j++)
 		{
@@ -6756,8 +6755,8 @@ Batary()
 			for(int i=0;i<width;i++)
     2aa0:	14 14       	cp	r1, r4
     2aa2:	15 04       	cpc	r1, r5
-    2aa4:	0c f0       	brlt	.+2      	; 0x2aa8 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh+0x76>
-    2aa6:	4e c0       	rjmp	.+156    	; 0x2b44 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh+0x112>
+    2aa4:	0c f0       	brlt	.+2      	; 0x2aa8 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh+0x76>
+    2aa6:	4e c0       	rjmp	.+156    	; 0x2b44 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh+0x112>
 			{
 				for(int k=0;k<8;k++)
 				{
@@ -6766,7 +6765,7 @@ Batary()
     2aaa:	87 70       	andi	r24, 0x07	; 7
     2aac:	90 78       	andi	r25, 0x80	; 128
     2aae:	99 23       	and	r25, r25
-    2ab0:	24 f4       	brge	.+8      	; 0x2aba <_ZN4OLED19OLED_Write_To_BuferEiiiiPh+0x88>
+    2ab0:	24 f4       	brge	.+8      	; 0x2aba <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh+0x88>
     2ab2:	01 97       	sbiw	r24, 0x01	; 1
     2ab4:	88 6f       	ori	r24, 0xF8	; 248
     2ab6:	9f 6f       	ori	r25, 0xFF	; 255
@@ -6776,7 +6775,7 @@ Batary()
     2abe:	19 0b       	sbc	r17, r25
     2ac0:	76 01       	movw	r14, r12
     2ac2:	dd 20       	and	r13, r13
-    2ac4:	1c f4       	brge	.+6      	; 0x2acc <_ZN4OLED19OLED_Write_To_BuferEiiiiPh+0x9a>
+    2ac4:	1c f4       	brge	.+6      	; 0x2acc <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh+0x9a>
     2ac6:	97 e0       	ldi	r25, 0x07	; 7
     2ac8:	e9 0e       	add	r14, r25
     2aca:	f1 1c       	adc	r15, r1
@@ -6813,19 +6812,19 @@ Batary()
     2b08:	8c 91       	ld	r24, X
     2b0a:	90 e0       	ldi	r25, 0x00	; 0
     2b0c:	02 2e       	mov	r0, r18
-    2b0e:	02 c0       	rjmp	.+4      	; 0x2b14 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh+0xe2>
+    2b0e:	02 c0       	rjmp	.+4      	; 0x2b14 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh+0xe2>
     2b10:	88 0f       	add	r24, r24
     2b12:	99 1f       	adc	r25, r25
     2b14:	0a 94       	dec	r0
-    2b16:	e2 f7       	brpl	.-8      	; 0x2b10 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh+0xde>
+    2b16:	e2 f7       	brpl	.-8      	; 0x2b10 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh+0xde>
     2b18:	80 78       	andi	r24, 0x80	; 128
     2b1a:	99 27       	eor	r25, r25
     2b1c:	00 2e       	mov	r0, r16
-    2b1e:	02 c0       	rjmp	.+4      	; 0x2b24 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh+0xf2>
+    2b1e:	02 c0       	rjmp	.+4      	; 0x2b24 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh+0xf2>
     2b20:	95 95       	asr	r25
     2b22:	87 95       	ror	r24
     2b24:	0a 94       	dec	r0
-    2b26:	e2 f7       	brpl	.-8      	; 0x2b20 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh+0xee>
+    2b26:	e2 f7       	brpl	.-8      	; 0x2b20 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh+0xee>
     2b28:	90 81       	ld	r25, Z
     2b2a:	89 2b       	or	r24, r25
     2b2c:	81 93       	st	Z+, r24
@@ -6839,11 +6838,11 @@ Batary()
     2b30:	3f 4f       	sbci	r19, 0xFF	; 255
     2b32:	28 30       	cpi	r18, 0x08	; 8
     2b34:	31 05       	cpc	r19, r1
-    2b36:	41 f7       	brne	.-48     	; 0x2b08 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh+0xd6>
+    2b36:	41 f7       	brne	.-48     	; 0x2b08 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh+0xd6>
     2b38:	48 5f       	subi	r20, 0xF8	; 248
     2b3a:	5f 4f       	sbci	r21, 0xFF	; 255
     2b3c:	11 96       	adiw	r26, 0x01	; 1
-	void OLED::OLED_Write_To_Bufer(int x,int y,int width,int height,uint8_t* img)
+	void OLED::OLED_Write_To_Bufer(int x,int y,int width,int height,const uint8_t* img)
 	{
 		for(int j=0;j<height;j++)
 		{
@@ -6851,11 +6850,11 @@ Batary()
 			for(int i=0;i<width;i++)
     2b3e:	4e 15       	cp	r20, r14
     2b40:	5f 05       	cpc	r21, r15
-    2b42:	f9 f6       	brne	.-66     	; 0x2b02 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh+0xd0>
+    2b42:	f9 f6       	brne	.-66     	; 0x2b02 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh+0xd0>
 		}
 	}
 
-	void OLED::OLED_Write_To_Bufer(int x,int y,int width,int height,uint8_t* img)
+	void OLED::OLED_Write_To_Bufer(int x,int y,int width,int height,const uint8_t* img)
 	{
 		for(int j=0;j<height;j++)
     2b44:	3f ef       	ldi	r19, 0xFF	; 255
@@ -6867,8 +6866,8 @@ Batary()
     2b50:	99 1e       	adc	r9, r25
     2b52:	2c 14       	cp	r2, r12
     2b54:	3d 04       	cpc	r3, r13
-    2b56:	09 f0       	breq	.+2      	; 0x2b5a <_ZN4OLED19OLED_Write_To_BuferEiiiiPh+0x128>
-    2b58:	a3 cf       	rjmp	.-186    	; 0x2aa0 <_ZN4OLED19OLED_Write_To_BuferEiiiiPh+0x6e>
+    2b56:	09 f0       	breq	.+2      	; 0x2b5a <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh+0x128>
+    2b58:	a3 cf       	rjmp	.-186    	; 0x2aa0 <_ZN4OLED19OLED_Write_To_BuferEiiiiPKh+0x6e>
 				{
 					oled_bufer[(x+i*8+k)+(y+j/8)*OLED_WIDTH]|=((img[j*width+i]<<k)&0b10000000)>>(7-j%8);
 				}

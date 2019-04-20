@@ -24,7 +24,7 @@ class OLED
 	void OLED_Write_Bufer();
 	void OLED_Bufer_Clear();
 	void OLED_Clear_Bufer_part(int x,int y,int width,int height);
-	void OLED_Write_To_Bufer(int x,int y,int width,int height,uint8_t* img);
+	void OLED_Write_To_Bufer(int x,int y,int width,int height,const uint8_t* img);
 };
 
 
