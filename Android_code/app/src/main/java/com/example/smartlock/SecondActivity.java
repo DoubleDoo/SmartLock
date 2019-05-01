@@ -20,9 +20,9 @@ public class SecondActivity extends AppCompatActivity {
 
 
 
-    public void register(android.view.View view)
-    {
-        ((TextView)findViewById(R.id.str)).setX(50);
-    }
+   // public void register(android.view.View view)
+    //{
+      //  ((TextView)findViewById(R.id.str)).setX(50);
+    //}
 }
 
