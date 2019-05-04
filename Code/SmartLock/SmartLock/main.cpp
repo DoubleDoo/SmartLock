@@ -631,52 +631,32 @@ bool btn12=false;
 ISR(PCINT0_vect)
 {
     cli();
-	/*
-	_delay_ms(1000);
-if(PINA&&0b00111100==0b00111100 )
-{
-	oled.OLED_Clear_Bufer_part(0,0,1,8);
-	oled.OLED_Write_To_Bufer(0,0,1,8,zero);
-}
-if(PINA&&0b00011100==0b00111100 )
-{
-	oled.OLED_Clear_Bufer_part(0,0,1,8);
-	oled.OLED_Write_To_Bufer(0,0,1,8,one);
-}
-if(PINA&&0b00101100==0b00111100 )
-{
-	oled.OLED_Clear_Bufer_part(0,0,1,8);
-	oled.OLED_Write_To_Bufer(0,0,1,8,two);
-}
-if(PINA&&0b00110100==0b00111100 )
-{
-	oled.OLED_Clear_Bufer_part(0,0,1,8);
-	oled.OLED_Write_To_Bufer(0,0,1,8,three);
-}
-if(PINA&&0b00111000==0b00111100 )
-{
-	oled.OLED_Clear_Bufer_part(0,0,1,8);
-	oled.OLED_Write_To_Bufer(0,0,1,8,four);
-}*/
-	//if(PINA==0b00100100&!btn03)
-//	{
-	//	btn03=true;
-	//}
-	//if(PINA==0b00011000&!btn12)
-//	{
-//		btn12=true;
-//	}
-
-		if((PINA&&0b00100000)==0)
-		{
-			oled.OLED_Clear_Bufer_part(8,2,1,8);
-			oled.OLED_Write_To_Bufer(8,2,1,8,one);
-		}
-		else
-		{
-			oled.OLED_Clear_Bufer_part(8,2,1,8);
-			oled.OLED_Write_To_Bufer(8,2,1,8,zero);
-		}
+	if(!(PINA&0b00000100)&!btn0 )
+	{
+		
+		oled.OLED_Clear_Bufer_part(0,0,1,8);
+		oled.OLED_Write_To_Bufer(0,0,1,8,one);
+		btn0=true;
+	}
+	
+	if(!(PINA&0b00001000)&!btn1 )
+	{
+		oled.OLED_Clear_Bufer_part(0,0,1,8);
+		oled.OLED_Write_To_Bufer(0,0,1,8,two);
+		btn1=true;
+	}
+	if(!(PINA&0b00010000)&!btn2 )
+	{
+		oled.OLED_Clear_Bufer_part(0,0,1,8);
+		oled.OLED_Write_To_Bufer(0,0,1,8,three);
+		btn2=true;
+	}
+	if(!(PINA&0b00100000)&!btn3 )
+	{
+		oled.OLED_Clear_Bufer_part(0,0,1,8);
+		oled.OLED_Write_To_Bufer(0,0,1,8,four);
+		btn3=true;
+	}
 	sei();
 
 }
@@ -864,10 +844,10 @@ int main(void){
 		oled.OLED_Write_Bufer();
 		//menu.refresh();
 
-		DDRA = 0x00;
+		DDRA = 0x00;  
 		PORTA= 0x00;
 		DDRD = 0b10000000;
-		PORTD = 0b10000000;
+		PORTD = 0b00000000;
 		PCMSK0=0b00111100;
 		PCICR|=0b00000001;
 		
@@ -875,27 +855,32 @@ int main(void){
 	while(1)
 	{
 		sei();
-		//check();
-		/*
+		check();
 		if (Password_Menu_Status)
 		{
 			passw_menu.refresh();
+			PORTD = 0b00000000;
 		}
 		else if (Main_Menu_Status)
 		{
 			menu.refresh();
+			PORTD = 0b00000000;
 		}
 		else if (Settings_Menu_Status)
 		{
 			sett_menu.refresh();
-		}*/
-		//batary.refresh();
-		//oled.OLED_Write_To_Bufer(80,0,2,8,Net0);
-		
-
+			PORTD = 0b10000000;
+			_delay_ms(5000);
+			PORTD = 0b00000000;
+			_delay_ms(1000);
+			
+		}
+		batary.refresh();
+		oled.OLED_Write_To_Bufer(80,0,2,8,Net0);
+	
 
 oled.OLED_Write_Bufer();
-//_delay_ms(1000);
+_delay_ms(100);
 
 	}
 	
