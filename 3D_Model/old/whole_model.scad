@@ -213,25 +213,28 @@ rotate([0, 0, 0])  translate([19, 9,-1]) cube([42,62,19]);
 
 translate([130, -80, -10])rotate([-90, 0, 90])
 //translate([360, -100, 10])rotate([0, 0, 0])
-difference() {
-union()
-{
-     translate([0, 0, 0])rotate([0, 0, 0]) 
-     union()
-     {
-         for(i=[0:30]) rotate([90, 0, 3*i])  translate([30, 0, 0]) cylinder(4,10,10,$fn=fn);
-     }  
-     translate([-60, 0, 0])rotate([0, 180, 0])  
-     union()
-     {
-         for(i=[0:30]) rotate([90, 0, 3*i])  translate([30, 0, 0]) cylinder(4,10,10,$fn=fn);
-     }
-     rotate([90, 0, 0])  translate([30, 0, 0]) cylinder(75,10,10,$fn=100);
-     rotate([90, 0, 0])  translate([-90, 0, 0]) cylinder(75,10,10,$fn=100);
-     rotate([0, 90, 0])       translate([0, 30, -60]) cylinder(60,10,10,$fn=100); 
-}
-     translate([-100, -65, -3.5]) cube([200,12,7]); 
- 
-}
+ union()
+    {
+        
+        translate([0, 0, 0])rotate([0, 0, 0]) 
+        union()
+            {
+                for(i=[0:30]) rotate([90, 0, 3*i])  translate([30, 0, 0]) cylinder(4,10,10,$fn=fn);
+               // rotate([90, 0, 0])  translate([60, 0, 0]) cylinder(30,10,10,$fn=100);
+               // rotate([90, 0, 0])  translate([-60, 0, 0]) cylinder(30,10,10,$fn=100);
+            }
+            
+        translate([-60, 0, 0])rotate([0, 180, 0])  
+        union()
+            {
+                for(i=[0:30]) rotate([90, 0, 3*i])  translate([30, 0, 0]) cylinder(4,10,10,$fn=fn);
+            }
+           // rotate([90, 0, 0])  translate([60, 0, 0]) cylinder(50,10,10,$fn=100);
+           // rotate([90, 0, 0])  translate([-60, 0, 0]) cylinder(50,10,10,$fn=100);    
 
+        
+                  rotate([90, 0, 0])  translate([30, 0, 0]) cylinder(60,10,10,$fn=100);
+                  rotate([90, 0, 0])  translate([-90, 0, 0]) cylinder(60,10,10,$fn=100);
+                    rotate([0, 90, 0])       translate([0, 30, -60]) cylinder(60,10,10,$fn=100);
+    }
 

@@ -146,10 +146,10 @@ difference() {
     rotate([0, 0, 0])  translate([15, 15, -1]) cube([50,50,202]);
     rotate([0, 0, 0])  translate([-1, -35, -1]) cube([82,80,202]);
     
-    rotate([0, 0, 0])  translate([40, 81, 40]) 
-    rotate([90, 0, 0]) cylinder(17,11,11,$fn=100);
-    rotate([0, 0, 0])  translate([40, 81, 160]) 
-    rotate([90, 0, 0]) cylinder(17,11,11,$fn=100);
+    rotate([0, 0, 0])  translate([40, 81, 42.5]) 
+    rotate([90, 0, 0]) cylinder(17,8.5,8.5,$fn=100);
+    rotate([0, 0, 0])  translate([40, 81, 157.5]) 
+    rotate([90, 0, 0]) cylinder(17,8.5,8.5,$fn=100);
     //
   //   rotate([0, 0, 0])  translate([9, 5,-1]) cube([12,60,200]);
  //rotate([0, 0, 0])  translate([59, 5,-1]) cube([12,60,200]);
@@ -213,25 +213,37 @@ rotate([0, 0, 0])  translate([19, 9,-1]) cube([42,62,19]);
 
 translate([130, -80, -10])rotate([-90, 0, 90])
 //translate([360, -100, 10])rotate([0, 0, 0])
+union(){
+
 difference() {
 union()
 {
-     translate([0, 0, 0])rotate([0, 0, 0]) 
+     translate([-2.5, 0, 0])rotate([0, 0, 0]) 
      union()
      {
-         for(i=[0:30]) rotate([90, 0, 3*i])  translate([30, 0, 0]) cylinder(4,10,10,$fn=fn);
+     rotate([180, 0, 0])  translate([10, 0, 0])        difference() {
+rotate_extrude(angle=360, convexity=15) translate([20, 0]) circle(7.5);
+     translate([-50, 0, -10]) cube([200,50,20]); 
+    translate([-50, -50, -10]) cube([50,60,20]); 
+}
      }  
-     translate([-60, 0, 0])rotate([0, 180, 0])  
+     translate([-57.5, 0, 0])rotate([0, 180, 0])  
      union()
      {
-         for(i=[0:30]) rotate([90, 0, 3*i])  translate([30, 0, 0]) cylinder(4,10,10,$fn=fn);
+      rotate([180, 0, 0])  translate([10, 0, 0])            difference() {
+rotate_extrude(angle=360, convexity=15) translate([20, 0]) circle(7.5);
+     translate([-50, 0, -10]) cube([200,50,20]); 
+    translate([-50, -50, -10]) cube([50,60,20]); 
+}
      }
-     rotate([90, 0, 0])  translate([30, 0, 0]) cylinder(75,10,10,$fn=100);
-     rotate([90, 0, 0])  translate([-90, 0, 0]) cylinder(75,10,10,$fn=100);
-     rotate([0, 90, 0])       translate([0, 30, -60]) cylinder(60,10,10,$fn=100); 
+ 
+     rotate([90, 0, 0])  translate([27.5, 0, 0]) cylinder(75,7.5,7.5,$fn=100);
+     rotate([90, 0, 0])  translate([-87.5, 0, 0]) cylinder(75,7.5,7.5,$fn=100);
+     rotate([0, 90, 0])       translate([0, 20, -67.5]) cylinder(75,7.5,7.5,$fn=100); 
 }
      translate([-100, -65, -3.5]) cube([200,12,7]); 
- 
+}
+
 }
 
 
