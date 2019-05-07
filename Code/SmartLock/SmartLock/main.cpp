@@ -3,14 +3,6 @@
 #include "TWI.h"
 #include "OLED.h"
 
-#define BUF_SIZE 128
-#define BUF_MASK (BUF_SIZE-1)
-#define IN_BUF_SIZE 64
-#define IN_BUF_MASK (IN_BUF_SIZE-1)
-
-volatile char buffer[BUF_SIZE]="";
-volatile char inbuf[IN_BUF_SIZE]="$"; //inner buffer of USART
-volatile uint8_t ind_in=0, ind_out=0, rxind_out=0, rxind_in=0, mess = 0;
 
 TWI wire;
 OLED oled(wire);
@@ -19,65 +11,8 @@ bool Password_Menu_Status=false;
 bool Settings_Menu_Status=false;
 
 
-//sending RS232 with interupt
-void SendByte(char byte)
-{
-	buffer[ind_in++] = byte;
-	ind_in &= BUF_MASK;
-}
-
-void SendStr(char *string)
-{
-	while (*string!='\n')  //check if End
-	{
-		SendByte(*string);
-		string++;
-	}
-}
-
-ISR (USART_UDRE_vect)
-{
-	UDR0 = buffer[ind_out++];  //запись из буфера
-	ind_out &= BUF_MASK;      //проверка маски кольцевого буфера
-	if (ind_in == ind_out)  //если буфер уже пуст
-	{
-		UCSR0B &= ~(1<<UDRIE0); //disable instrupt UDR empty
-		UCSR0B |= (1<<RXEN0);   //разрешение приёма после окончания отправки
-	}
-	sei ();
-}
-
 bool locked=false;
 
-void USART_Init( unsigned int baud )
-{
-	/* Set baud rate */
-	UBRR0H = (unsigned char)(baud>>8);
-	UBRR0L = (unsigned char)baud;
-	/* Enable receiver and transmitter */
-	UCSR0B = (1<<RXEN0)|(1<<TXEN0);
-	/* Set frame format: 8data, 2stop bit */
-	UCSR0C = (1<<USBS0)|(3<<UCSZ00);	
-	sei();
-}
-
-void USART_Transmit( unsigned char data )
-{
-	/* Wait for empty transmit buffer */
-	while ( !( UCSR0A & (1<<UDRE0)) )
-	;
-	/* Put data into buffer, sends the data */
-	UDR0 = data;
-}
-
-unsigned char USART_Receive( void )
-{
-	/* Wait for data to be received */
-	while ( !(UCSR0A & (1<<RXC0)) )
-	;
-	/* Get and return received data from buffer */
-	return UDR0;
-}
 
 
 
@@ -907,6 +842,45 @@ void refresh()
 Batary batary;
 
 
+
+void USART_Init()
+{
+	/* Set baud rate */
+	
+	
+	UBRR0=129;
+	//U2X0=0;
+	UBRR0H = (unsigned char)(9600>>8);
+	UBRR0L = (unsigned char)9600;
+	/* Enable receiver and transmitter */
+	UCSR0B = (1<<RXEN0)|(1<<TXEN0);
+	/* Set frame format: 8data, 2stop bit */
+	UCSR0C = (1<<USBS0)|(3<<UCSZ00);
+}
+
+
+void USART_Transmit( unsigned char data )
+{
+	/* Wait for empty transmit buffer */
+	while ( !( UCSR0A & (1<<UDRE0)) )
+	;
+	/* Put data into buffer, sends the data */
+	UDR0 = data;
+}
+
+
+unsigned char USART_Receive( void )
+{
+	/* Wait for data to be received */
+	while ( !(UCSR0A & (1<<RXC0)) )
+	;
+	/* Get and return received data from buffer */
+	return UDR0;
+}
+
+
+
+
 int main(void){
 
 		oled.OLED_Write_Bufer();
@@ -918,11 +892,21 @@ int main(void){
 		PORTD = 0b00000000;
 		PCMSK0=0b00111100;
 		PCICR|=0b00000001;
-		
-
+		_delay_ms(2000);
+		USART_Init();
+		USART_Transmit('A');
+		USART_Transmit('T');
+		USART_Transmit('+');
+		USART_Transmit('G');
+		USART_Transmit('S');
+		USART_Transmit('N');
+		_delay_ms(1000);
+//
 	while(1)
 	{
 		sei();
+
+		/*
 	//	SendStr("AT+CMGF=1\n");
 		//SendByte(0x0D);    //отправляем <Enter> (0x0D)
 		//UCSR0B &= ~(1<<RXEN0);   //Запрещаем приём на время отправки
@@ -954,7 +938,7 @@ int main(void){
 
 oled.OLED_Write_Bufer();
 _delay_ms(100);
-
+*/
 	}
 	
 	
