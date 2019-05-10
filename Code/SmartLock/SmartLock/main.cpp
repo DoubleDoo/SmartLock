@@ -2,7 +2,7 @@
 #include "Images.h"
 #include "TWI.h"
 #include "OLED.h"
-#define CPU_F				20000000UL
+#define CPU_F				2000000UL
 
 
 TWI wire;
@@ -10,7 +10,14 @@ OLED oled(wire);
 bool Main_Menu_Status=true;
 bool Password_Menu_Status=false;
 bool Settings_Menu_Status=false;
+bool Info_Menu_Status=false;
 
+bool User_Info_Status=false;
+bool Device_Info_Status=false;
+bool User_Add_Status=false;
+bool Reset_Status=false;
+bool Brightness_Status=false;
+bool Waiting_Status=false;
 
 bool locked=false;
 
@@ -103,7 +110,9 @@ class Main_Menu:public Menu_Element
 			}
 			case 2:
 			{
-				//close();
+				Main_Menu_Status=false;
+				Info_Menu_Status=true;
+				close();
 				break;
 			}
 		}
@@ -458,7 +467,7 @@ class Password_Menu:public Menu_Element
 };
 
 
-#define SETTINGS_MENU_POINER_COUNT 4
+#define SETTINGS_MENU_POINER_COUNT 3
 #define SETTINGS_MENU_IMG_X_0 8
 #define SETTINGS_MENU_IMG_X_1 16
 #define SETTINGS_MENU_IMG_X_2 28
@@ -618,7 +627,139 @@ class Settings_Menu:public Menu_Element
 	
 };
 
-//Info_menu inf_menu;
+#define INFO_MENU_POINER_COUNT 2
+#define INFO_MENU_IMG_X_0 24
+#define INFO_MENU_IMG_X_1 32
+#define INFO_MENU_IMG_X_2 54
+#define INFO_MENU_IMG_Y 4
+
+class Info_menu:public Menu_Element
+{
+	protected:
+	int pointer=0;
+	int x[3]={ INFO_MENU_IMG_X_0, INFO_MENU_IMG_X_1, INFO_MENU_IMG_X_2};
+	int y= INFO_MENU_IMG_Y;
+	public:
+	Info_menu()
+	{
+
+	};
+	
+	void Default() override
+	{
+		oled.OLED_Write_To_Bufer(56,y+2,2,8,downwd);
+		oled.OLED_Write_To_Bufer(56,y-2,2,8,upwd);
+	};
+	
+	void refresh() override
+	{
+		Default();
+		actions();
+	};
+	
+	void close()override
+	{
+		pointer=0;
+		Info_Menu_Status=false;
+		Main_Menu_Status=true;
+		oled.OLED_Bufer_Clear();
+	};
+	
+	void next()override
+	{
+		pointer++;
+		if(pointer>INFO_MENU_POINER_COUNT) pointer=0;
+		actions();
+	};
+	
+	void previous()override
+	{
+		pointer--;
+		if(pointer<0) pointer=INFO_MENU_POINER_COUNT;
+		actions();
+	};
+	
+	void choise()override
+	{
+		switch(pointer)
+		{
+			case 0:
+			{
+				
+				break;
+			}
+			case 1:
+			{
+				
+				break;
+			}
+			case 2:
+			{
+				back();
+				break;
+			}
+		}
+	};
+	
+	void back()override
+	{
+		close();
+		pointer=0;
+	};
+	
+	void animate()override
+	{
+		
+		
+	};
+	
+	void actions()override
+	{
+		if(Info_Menu_Status){
+			switch(pointer)
+			{
+				case 0:
+				{
+					oled.OLED_Clear_Bufer_part(0,y,16,8);
+					oled.OLED_Write_To_Bufer(x[pointer]+0,y,1,8,D);
+					oled.OLED_Write_To_Bufer(x[pointer]+8,y,1,8,E);
+					oled.OLED_Write_To_Bufer(x[pointer]+16,y,1,8,V);
+					oled.OLED_Write_To_Bufer(x[pointer]+24,y,1,8,I);
+					oled.OLED_Write_To_Bufer(x[pointer]+32,y,1,8,C);
+					oled.OLED_Write_To_Bufer(x[pointer]+40,y,1,8,E);
+					oled.OLED_Write_To_Bufer(x[pointer]+56,y,1,8,I);
+					oled.OLED_Write_To_Bufer(x[pointer]+64,y,1,8,N);
+					oled.OLED_Write_To_Bufer(x[pointer]+72,y,1,8,F);
+					oled.OLED_Write_To_Bufer(x[pointer]+80,y,1,8,O);
+
+					break;
+				}
+				case 1:
+				{
+					oled.OLED_Clear_Bufer_part(0,y,16,8);
+					oled.OLED_Write_To_Bufer(x[pointer]+0,y,1,8,U);
+					oled.OLED_Write_To_Bufer(x[pointer]+8,y,1,8,S);
+					oled.OLED_Write_To_Bufer(x[pointer]+16,y,1,8,E);
+					oled.OLED_Write_To_Bufer(x[pointer]+24,y,1,8,R);
+					oled.OLED_Write_To_Bufer(x[pointer]+40,y,1,8,I);
+					oled.OLED_Write_To_Bufer(x[pointer]+48,y,1,8,N);
+					oled.OLED_Write_To_Bufer(x[pointer]+56,y,1,8,F);
+					oled.OLED_Write_To_Bufer(x[pointer]+64,y,1,8,O);
+					break;
+				}
+				case 2:
+				{
+					oled.OLED_Clear_Bufer_part(0,y,16,8);
+					oled.OLED_Write_To_Bufer(x[pointer],y,2,8,backk);
+					break;
+				}
+			}
+		}
+	};
+	
+};
+
+Info_menu inf_menu;
 Settings_Menu sett_menu;
 Password_Menu passw_menu;
 Main_Menu menu;
@@ -661,6 +802,7 @@ ISR(PCINT0_vect)
 		oled.OLED_Write_To_Bufer(0,0,1,8,four);
 		btn1=true;
 	}
+	_delay_ms(500);
 	sei();
 
 }
@@ -690,6 +832,35 @@ void check()
 			sett_menu.previous();
 			//sett_menu.refresh();
 		}
+		else if (Info_Menu_Status)
+		{
+			inf_menu.previous();
+			//sett_menu.refresh();
+		}
+		else if (User_Info_Status)
+		{
+		//	.refresh();
+		}
+		else if (Device_Info_Status)
+		{
+		//	.refresh();
+		}
+		else if (User_Add_Status)
+		{
+		//	.refresh();
+		}
+		else if (Reset_Status)
+		{
+			//	.refresh();
+		}
+		else if (Brightness_Status)
+		{
+			//	.refresh();
+		}
+		else if (Waiting_Status)
+		{
+			//	.refresh();
+		}
 
 	}
 	else if(!btn0 & btn1 & !btn2 & !btn3 & !btn12 & !btn03)
@@ -708,6 +879,34 @@ void check()
 		{
 
 		}	
+		else if (Info_Menu_Status)
+		{
+
+		}
+		else if (User_Info_Status)
+		{
+			//	.refresh();
+		}
+		else if (Device_Info_Status)
+		{
+			//	.refresh();
+		}
+		else if (User_Add_Status)
+		{
+			//	.refresh();
+		}
+		else if (Reset_Status)
+		{
+			//	.refresh();
+		}
+		else if (Brightness_Status)
+		{
+			//	.refresh();
+		}
+		else if (Waiting_Status)
+		{
+			//	.refresh();
+		}
 		if(!locked)
 		{
 			PORTD = 0b10000000;
@@ -733,6 +932,34 @@ void check()
 		{
 
 
+		}
+		else if (Info_Menu_Status)
+		{
+
+		}
+		else if (User_Info_Status)
+		{
+			//	.refresh();
+		}
+		else if (Device_Info_Status)
+		{
+			//	.refresh();
+		}
+		else if (User_Add_Status)
+		{
+			//	.refresh();
+		}
+		else if (Reset_Status)
+		{
+			//	.refresh();
+		}
+		else if (Brightness_Status)
+		{
+			//	.refresh();
+		}
+		else if (Waiting_Status)
+		{
+			//	.refresh();
 		}
 		
 		if(!locked)
@@ -762,6 +989,34 @@ void check()
 			sett_menu.next();
 			//sett_menu.refresh();
 		}
+		else if (Info_Menu_Status)
+		{
+			inf_menu.next();
+		}
+		else if (User_Info_Status)
+		{
+			//	.refresh();
+		}
+		else if (Device_Info_Status)
+		{
+			//	.refresh();
+		}
+		else if (User_Add_Status)
+		{
+			//	.refresh();
+		}
+		else if (Reset_Status)
+		{
+			//	.refresh();
+		}
+		else if (Brightness_Status)
+		{
+			//	.refresh();
+		}
+		else if (Waiting_Status)
+		{
+			//	.refresh();
+		}
 
 	}
 	else if(!btn0  & !btn3 & btn12 & !btn03)
@@ -783,7 +1038,34 @@ void check()
 		//sett_menu.choise();
 		//sett_menu.refresh();
 	}
-		
+	else if (Info_Menu_Status)
+	{
+
+	}
+	else if (User_Info_Status)
+	{
+		//	.refresh();
+	}
+	else if (Device_Info_Status)
+	{
+		//	.refresh();
+	}
+	else if (User_Add_Status)
+	{
+		//	.refresh();
+	}
+	else if (Reset_Status)
+	{
+		//	.refresh();
+	}
+	else if (Brightness_Status)
+	{
+		//	.refresh();
+	}
+	else if (Waiting_Status)
+	{
+		//	.refresh();
+	}
 		if(!locked)
 		{
 			PORTD = 0b10000000;
@@ -811,6 +1093,35 @@ void check()
 		{
 			sett_menu.choise();
 			//sett_menu.refresh();
+		}
+		else if (Info_Menu_Status)
+		{
+			inf_menu.choise();
+			//sett_menu.refresh();
+		}
+		else if (User_Info_Status)
+		{
+			//	.refresh();
+		}
+		else if (Device_Info_Status)
+		{
+			//	.refresh();
+		}
+		else if (User_Add_Status)
+		{
+			//	.refresh();
+		}
+		else if (Reset_Status)
+		{
+			//	.refresh();
+		}
+		else if (Brightness_Status)
+		{
+			//	.refresh();
+		}
+		else if (Waiting_Status)
+		{
+			//	.refresh();
 		}
 		
 	}
@@ -942,135 +1253,21 @@ void asciitoimg(int x,int y,int w,int h,uint8_t data)
 	else if (data==0x39)
 	oled.OLED_Write_To_Bufer(x,y,w,h,nine);
 	
-	/*
-	else if (data==0x00)
-	oled.OLED_Write_To_Bufer(x,y,w,h,A);
-	else if (data==0x01)
-	oled.OLED_Write_To_Bufer(x,y,w,h,B);
-	else if (data==0x02)
-	oled.OLED_Write_To_Bufer(x,y,w,h,C);
-	else if (data==0x03)
-	oled.OLED_Write_To_Bufer(x,y,w,h,D);
-	else if (data==0x04)
-	oled.OLED_Write_To_Bufer(x,y,w,h,E);
-	else if (data==0x05)
-	oled.OLED_Write_To_Bufer(x,y,w,h,F);
-	else if (data==0x06)
-	oled.OLED_Write_To_Bufer(x,y,w,h,G);
-	else if (data==0x07)
-	oled.OLED_Write_To_Bufer(x,y,w,h,H);
-	else if (data==0x08)
-	oled.OLED_Write_To_Bufer(x,y,w,h,I);
-	else if (data==0x09)
-	oled.OLED_Write_To_Bufer(x,y,w,h,J);*/
 	else if (data>>4==0)
 	oled.OLED_Write_To_Bufer(x,y,w,h,NL);
-	/*
-	else if (data==0x0B)
-	oled.OLED_Write_To_Bufer(x,y,w,h,L);
-	else if (data==0x0C)
-	oled.OLED_Write_To_Bufer(x,y,w,h,M);
-	else if (data==0x0D)
-	oled.OLED_Write_To_Bufer(x,y,w,h,N);
-	else if (data==0x0E)
-	oled.OLED_Write_To_Bufer(x,y,w,h,O);
-	else if (data==0x0F)
-	oled.OLED_Write_To_Bufer(x,y,w,h,Y);
-	
-	
-	else if (data==0x10)
-	oled.OLED_Write_To_Bufer(x,y,w,h,A);
-	else if (data==0x11)
-	oled.OLED_Write_To_Bufer(x,y,w,h,B);
-	else if (data==0x12)
-	oled.OLED_Write_To_Bufer(x,y,w,h,C);
-	else if (data==0x13)
-	oled.OLED_Write_To_Bufer(x,y,w,h,D);
-	else if (data==0x14)
-	oled.OLED_Write_To_Bufer(x,y,w,h,E);
-	else if (data==0x15)
-	oled.OLED_Write_To_Bufer(x,y,w,h,F);
-	else if (data==0x16)
-	oled.OLED_Write_To_Bufer(x,y,w,h,G);
-	else if (data==0x17)
-	oled.OLED_Write_To_Bufer(x,y,w,h,H);
-	else if (data==0x18)
-	oled.OLED_Write_To_Bufer(x,y,w,h,I);
-	else if (data==0x19)
-	oled.OLED_Write_To_Bufer(x,y,w,h,J);
-	else if (data==0x1A)
-	oled.OLED_Write_To_Bufer(x,y,w,h,K);
-	else if (data==0x1B)
-	oled.OLED_Write_To_Bufer(x,y,w,h,L);
-	else if (data==0x1C)
-	oled.OLED_Write_To_Bufer(x,y,w,h,M);
-	else if (data==0x1D)
-	oled.OLED_Write_To_Bufer(x,y,w,h,N);
-	else if (data==0x1E)
-	oled.OLED_Write_To_Bufer(x,y,w,h,O);
-	else if (data==0x1F)
-	oled.OLED_Write_To_Bufer(x,y,w,h,Y);
-	*/
 	else oled.OLED_Write_To_Bufer(x,y,w,h,what);
 }
 
-/*
-uint8_t receive = 0;
-uint8_t rx_data = 0;
-bool rx_flag = false;
-*/
+
 void USART_Init()
 {
-	
-	
-	UBRR0L = 16;       //Младшие 8 бит UBRRL_value
-	UBRR0H = 16 >> 8;  //Старшие 8 бит UBRRL_value
-	//104 52 25
-	/* Enable receiver and transmitter */
-	UCSR0B |=(1<<RXEN0)|(1<<RXCIE0)|(1<<TXEN0);         //Бит разрешения передачи
-	UCSR0C = (0<<USBS0) | (1<<UCSZ00)| (1<<UCSZ01)| (0<<UCSZ02); //Устанавливем формат 8 бит данных
-
-	
-//	UCSR0B = (1<<RXEN0)|(1<<TXEN0);
-	/* Set frame format: 8data, 2stop bit */
-	//UCSR0C = (1<<USBS0)|(1<<UCSZ00)|(1<<UCSZ01);
+	UBRR0L = 16;      
+	UBRR0H = 16 >> 8; 
+	UCSR0B |=(1<<RXEN0)|(1<<RXCIE0)|(1<<TXEN0);      
+	UCSR0C = (0<<USBS0) | (1<<UCSZ00)| (1<<UCSZ01)| (0<<UCSZ02);
 }
 
 
-
-//void USART_Transmit( unsigned char data )
-//{
-	/* Wait for empty transmit buffer */
-	//UCSR0B |=(0<<RXCIE0);  
-//	while ( !( UCSR0A & (1<<UDRE0)) )
-//	;
-	/* Put data into buffer, sends the data */
-//	UDR0 = data;
-	//UCSR0B |=(1<<RXCIE0); 
-//}
-/*
-ISR(USART_RXC_vect) {
-	rx_data = UDR0;
-	rx_flag = true;
-}*/
-
-//unsigned char USART_Receive( void )
-//{
-	/* Wait for data to be received */
-//	while ( !(UCSR0A & (1<<RXC0)) )
-//	;
-	/* Get and return received data from buffer */
-//	return UDR0;
-//}
-
-//uint8_t i = 0;
-
-
-//void UARTSend(uint8_t data) {
-	//while(!(UCSR0A & (1<<UDRE0)));
-//	UDR0 = data;
-//}
-//
 
 void send_Uart(const char c)
 {
@@ -1084,15 +1281,6 @@ void send_Uart_str(const char *s)
 	while (*s != 0) send_Uart(*s++);
 }
 
-unsigned char getch_Uart(void)
-{
-	while(!(UCSR0A&(1<<RXC0))) 
-	{}
-	return UDR0;
-}
-
-
-
 
 uint8_t data_in[100];
 bool read=false;
@@ -1100,18 +1288,11 @@ int count=0;
 ISR (USART0_RX_vect)
 {
 	while(!(UCSR0A&(1<<RXC0))) {};
-	UCSR0B |=(0<<RXEN0)|(0<<RXCIE0);//|(1<<TXEN0); 
-	// Get data from the USART in register
-	
+	UCSR0B |=(0<<RXEN0)|(0<<RXCIE0);
 	data_in[count] = UDR0;
-
-	// End of line!
-	//if (data_in[count] == '9') {
 		read=true;
-	//	} else {
 		count++;
-	//}
-	UCSR0B |=(1<<RXEN0)|(1<<RXCIE0);//|(1<<TXEN0); 
+	UCSR0B |=(1<<RXEN0)|(1<<RXCIE0); 
 
 
 }
@@ -1128,6 +1309,7 @@ sei();
 		//PORTD = 0b00000000;
 		PCMSK0=0b00111100;
 		PCICR|=0b00000001;
+		/*
 		USART_Init();
 		_delay_ms(1000);
 		_delay_ms(1000);	
@@ -1156,27 +1338,20 @@ sei();
 		send_Uart((char)13);
 				_delay_ms(1000);
 				send_Uart_str("AT");
-				send_Uart((char)13);
+				send_Uart((char)13);*/
 	while(1)
 	{
-		 if (read == true) {
-			 for(int j=0;j<count;j++)
-			 {
-			 oled.OLED_Clear_Bufer_part((j)*8,1,1,8);
-			 asciitoimg((j)*8,1,1,8,data_in[j]);
-			 }
-			 count=0;
-			 read = false;
+		if (read == true) {
+		 for(int j=0;j<count;j++)
+		 {
+		 oled.OLED_Clear_Bufer_part((j)*8,1,1,8);
+		 asciitoimg((j)*8,1,1,8,data_in[j]);
 		 }
-	//	if(re)
-	//	{
-	//		for(int j=0;j<10;j++)
-	//		asciitoimg((j)*8,1,1,8,mas[j]);
-	//		re=false;
-	//	}
-		
+		 count=0;
+		 read = false;
+		}
 		sei();
-	/*	check();
+		check();
 		if (Password_Menu_Status)
 		{
 			passw_menu.refresh();
@@ -1189,13 +1364,37 @@ sei();
 		{
 			sett_menu.refresh();	
 		}
-		batary.refresh();
-		oled.OLED_Write_To_Bufer(80,0,2,8,Net0);
-	*/
+		else if (Info_Menu_Status)
+		{
+			inf_menu.refresh();
+		}
+		else if (User_Info_Status)
+		{
+		//	.refresh();
+		}
+		else if (Device_Info_Status)
+		{
+		//	.refresh();
+		}
+		else if (User_Add_Status)
+		{
+		//	.refresh();
+		}
+		else if (Reset_Status)
+		{
+			//	.refresh();
+		}
+		else if (Brightness_Status)
+		{
+			//	.refresh();
+		}
+		else if (Waiting_Status)
+		{
+			//	.refresh();
+		}
 
-oled.OLED_Write_Bufer();
+		batary.refresh();
+		oled.OLED_Write_To_Bufer(80,0,2,8,Net3);
+		oled.OLED_Write_Bufer();
 	}
-	
-	
-	
 }
