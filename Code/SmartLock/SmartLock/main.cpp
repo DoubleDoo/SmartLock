@@ -2,7 +2,7 @@
 #include "Images.h"
 #include "TWI.h"
 #include "OLED.h"
-#define CPU_F				2000000UL
+#define CPU_F				20000000UL
 
 
 TWI wire;
@@ -1285,6 +1285,7 @@ void send_Uart_str(const char *s)
 uint8_t data_in[100];
 bool read=false;
 int count=0;
+/*
 ISR (USART0_RX_vect)
 {
 	while(!(UCSR0A&(1<<RXC0))) {};
@@ -1297,8 +1298,13 @@ ISR (USART0_RX_vect)
 
 }
 
- 
+ ISR (TIMER0_COMPA_vect)
+ {
+	PORTD=0b10000000;
+	 
 
+ }
+*/
 int main(void){
 sei();
 
@@ -1309,19 +1315,14 @@ sei();
 		//PORTD = 0b00000000;
 		PCMSK0=0b00111100;
 		PCICR|=0b00000001;
-		/*
+	//	OCR0A=0b00010000;
+	//	TCCR0A |= (3<<CS00);
+		
 		USART_Init();
 		_delay_ms(1000);
 		_delay_ms(1000);	
 		send_Uart_str("AT");
 		send_Uart((char)13);
-	
-	//	 if(str[0]!=0)asciitoimg(8,1,1,8,str[0]);
-	//	 if(str[1]!=0)oled.OLED_Write_To_Bufer(8,0,1,8,zero);
-	//	 if(str[2]!=0)oled.OLED_Write_To_Bufer(8,0,1,8,zero);
-	//	 if(str[3]!=0)oled.OLED_Write_To_Bufer(8,0,1,8,zero);
-	//	 if(str[4]!=0)oled.OLED_Write_To_Bufer(8,0,1,8,zero);
-	//	 if(str[5]!=0)oled.OLED_Write_To_Bufer(8,0,1,8,zero);
 		_delay_ms(1000);
 		send_Uart_str("AT+CMGF=1");
 		//readSerial();
@@ -1334,13 +1335,14 @@ sei();
 		_delay_ms(1000);
 		send_Uart((char)26);
 		_delay_ms(1000);
-		send_Uart_str("AT+CNMI=1,2,0,0,0");
-		send_Uart((char)13);
-				_delay_ms(1000);
-				send_Uart_str("AT");
-				send_Uart((char)13);*/
+	//	send_Uart_str("AT+CNMI=1,2,0,0,0");
+	//	send_Uart((char)13);
+	//			_delay_ms(1000);
+	//			send_Uart_str("AT");
+	//			send_Uart((char)13);
 	while(1)
 	{
+		/*
 		if (read == true) {
 		 for(int j=0;j<count;j++)
 		 {
@@ -1349,7 +1351,7 @@ sei();
 		 }
 		 count=0;
 		 read = false;
-		}
+		}*/
 		sei();
 		check();
 		if (Password_Menu_Status)
