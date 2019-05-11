@@ -685,12 +685,18 @@ class Info_menu:public Menu_Element
 		{
 			case 0:
 			{
-				
+				 Info_Menu_Status=false;
+				 Device_Info_Status=true;
+				 //close();
+				 oled.OLED_Bufer_Clear();
 				break;
 			}
 			case 1:
 			{
-				
+				 Info_Menu_Status=false;
+				 User_Info_Status=true;
+				 //close();
+				 oled.OLED_Bufer_Clear();
 				break;
 			}
 			case 2:
@@ -759,10 +765,234 @@ class Info_menu:public Menu_Element
 	
 };
 
+#define US_INFO_POINER_COUNT 0
+#define US_INFO_IMG_X_0 0
+#define US_INFO_IMG_X_1 0
+#define US_INFO_IMG_X_2 0
+#define US_INFO_IMG_Y 2
+
+class User_Info:public Menu_Element
+{
+	protected:
+	int pointer=0;
+	int x[3]={ US_INFO_IMG_X_0, US_INFO_IMG_X_1, US_INFO_IMG_X_2};
+	int y= US_INFO_IMG_Y;
+	public:
+	User_Info()
+	{
+
+	};
+	
+	void Default() override
+	{
+		
+	};
+	
+	void refresh() override
+	{
+		Default();
+		actions();
+	};
+	
+	void close()override
+	{
+		pointer=0;
+		User_Info_Status=false;
+		Info_Menu_Status=true;
+		oled.OLED_Bufer_Clear();
+	};
+	
+	void next()override
+	{
+		 close();
+		actions();
+	};
+	
+	void previous()override
+	{
+		 close();
+		actions();
+	};
+	
+	void choise()override
+	{
+		 close();
+	};
+	
+	void back()override
+	{
+		close();
+		pointer=0;
+	};
+	
+	void animate()override
+	{
+		
+		
+	};
+	
+	void actions()override
+	{
+		if(User_Info_Status){
+
+					oled.OLED_Clear_Bufer_part(0,y,16,8);
+					oled.OLED_Write_To_Bufer(x[0]+0,y,1,8,U);
+					oled.OLED_Write_To_Bufer(x[0]+8,y,1,8,J);
+					oled.OLED_Write_To_Bufer(x[0]+16,y,1,8,N);
+					oled.OLED_Write_To_Bufer(x[0]+24,y,1,8,O);
+					oled.OLED_Write_To_Bufer(x[0]+32,y,1,8,B);
+					oled.OLED_Write_To_Bufer(x[0]+40,y,1,8,U);
+					oled.OLED_Write_To_Bufer(x[0]+48,y,1,8,T);
+					oled.OLED_Write_To_Bufer(x[0]+56,y,1,8,O);
+					oled.OLED_Write_To_Bufer(x[0]+64,y,1,8,V);
+					oled.OLED_Write_To_Bufer(x[0]+72,y,1,8,S);
+					oled.OLED_Write_To_Bufer(x[0]+80,y,1,8,K);
+					oled.OLED_Write_To_Bufer(x[0]+88,y,1,8,A);
+					oled.OLED_Write_To_Bufer(x[0]+96,y,1,8,Y);
+					oled.OLED_Write_To_Bufer(x[0]+104,y,1,8,A);
+
+
+					oled.OLED_Clear_Bufer_part(0,y+1,16,8);
+					oled.OLED_Write_To_Bufer(x[1]+0,y+1,1,8,six);
+					oled.OLED_Write_To_Bufer(x[1]+8,y+1,1,8,six);
+					oled.OLED_Write_To_Bufer(x[1]+24,y+1,1,8,six);
+					oled.OLED_Write_To_Bufer(x[1]+32,y+1,1,8,nine);
+
+					
+					oled.OLED_Clear_Bufer_part(0,y+2,16,8);
+					oled.OLED_Write_To_Bufer(x[2]+0,y+2,1,8,D);
+					oled.OLED_Write_To_Bufer(x[2]+8,y+2,1,8,M);
+					oled.OLED_Write_To_Bufer(x[2]+16,y+2,1,8,I);
+					oled.OLED_Write_To_Bufer(x[2]+24,y+2,1,8,T);
+					oled.OLED_Write_To_Bufer(x[2]+32,y+2,1,8,R);
+					oled.OLED_Write_To_Bufer(x[2]+40,y+2,1,8,Y);
+					oled.OLED_Write_To_Bufer(x[2]+56,y+2,1,8,D);
+					oled.OLED_Write_To_Bufer(x[2]+64,y+2,1,8,U);
+					oled.OLED_Write_To_Bufer(x[2]+72,y+2,1,8,B);
+					oled.OLED_Write_To_Bufer(x[2]+80,y+2,1,8,I);
+					oled.OLED_Write_To_Bufer(x[2]+88,y+2,1,8,N);
+					oled.OLED_Write_To_Bufer(x[2]+96,y+2,1,8,A);
+					
+					oled.OLED_Clear_Bufer_part(0,y+3,16,8);
+					oled.OLED_Write_To_Bufer(x[3]+0,y+3,1,8,eight);
+					oled.OLED_Write_To_Bufer(x[3]+8,y+3,1,8,nine);
+					oled.OLED_Write_To_Bufer(x[3]+16,y+3,1,8,two);
+					oled.OLED_Write_To_Bufer(x[3]+24,y+3,1,8,six);
+					oled.OLED_Write_To_Bufer(x[3]+32,y+3,1,8,zero);
+					oled.OLED_Write_To_Bufer(x[3]+40,y+3,1,8,seven);
+					oled.OLED_Write_To_Bufer(x[3]+48,y+3,1,8,five);
+					oled.OLED_Write_To_Bufer(x[3]+56,y+3,1,8,five);
+					oled.OLED_Write_To_Bufer(x[3]+64,y+3,1,8,seven);
+					oled.OLED_Write_To_Bufer(x[3]+72,y+3,1,8,two);
+					oled.OLED_Write_To_Bufer(x[3]+80,y+3,1,8,five);
+
+			}
+	};
+	
+};
+
+
+#define DV_INFO_POINER_COUNT 0
+#define DV_INFO_IMG_X_0 0
+#define DV_INFO_IMG_X_1 0
+#define DV_INFO_IMG_Y 2
+
+class Device_info:public Menu_Element
+{
+	protected:
+	int x[2]={ DV_INFO_IMG_X_0, DV_INFO_IMG_X_1};
+	int y= DV_INFO_IMG_Y;
+	public:
+	Device_info()
+	{
+
+	};
+	
+	void Default() override
+	{
+		
+	};
+	
+	void refresh() override
+	{
+		Default();
+		actions();
+	};
+	
+	void close()override
+	{
+		pointer=0;
+		Device_Info_Status=false;
+		Info_Menu_Status=true;
+		oled.OLED_Bufer_Clear();
+	};
+	
+	void next()override
+	{
+		close();
+	};
+	
+	void previous()override
+	{
+		close();
+	};
+	
+	void choise()override
+	{
+		close();
+	};
+	
+	void back()override
+	{
+		close();
+	};
+	
+	void animate()override
+	{
+		
+		
+	};
+	
+	void actions()override
+	{
+		if(Device_Info_Status){
+
+			oled.OLED_Clear_Bufer_part(0,y,16,8);
+			oled.OLED_Write_To_Bufer(x[0]+0,y,1,8,S);
+			oled.OLED_Write_To_Bufer(x[0]+8,y,1,8,O);
+			oled.OLED_Write_To_Bufer(x[0]+16,y,1,8,F);
+			oled.OLED_Write_To_Bufer(x[0]+24,y,1,8,T);
+			oled.OLED_Write_To_Bufer(x[0]+32,y,1,8,W);
+			oled.OLED_Write_To_Bufer(x[0]+40,y,1,8,A);
+			oled.OLED_Write_To_Bufer(x[0]+48,y,1,8,R);
+			oled.OLED_Write_To_Bufer(x[0]+56,y,1,8,E);
+			oled.OLED_Write_To_Bufer(x[0]+72,y,1,8,V);
+			oled.OLED_Write_To_Bufer(x[0]+80,y,1,8,E);
+			oled.OLED_Write_To_Bufer(x[0]+88,y,1,8,R);
+			oled.OLED_Write_To_Bufer(x[0]+96,y,1,8,S);
+			oled.OLED_Write_To_Bufer(x[0]+104,y,1,8,I);
+			oled.OLED_Write_To_Bufer(x[0]+112,y,1,8,O);
+			oled.OLED_Write_To_Bufer(x[0]+120,y,1,8,N);
+			
+			oled.OLED_Clear_Bufer_part(0,y+1,16,8);
+			oled.OLED_Write_To_Bufer(x[1]+0,y+1,1,8,zero);
+			oled.OLED_Write_To_Bufer(x[1]+8,y+1,1,8,one);
+			oled.OLED_Write_To_Bufer(x[1]+24,y+1,1,8,B);
+			oled.OLED_Write_To_Bufer(x[1]+32,y+1,1,8,E);
+			oled.OLED_Write_To_Bufer(x[1]+40,y+1,1,8,T);
+			oled.OLED_Write_To_Bufer(x[1]+48,y+1,1,8,A);
+		}
+	};
+	
+};
+
 Info_menu inf_menu;
 Settings_Menu sett_menu;
 Password_Menu passw_menu;
 Main_Menu menu;
+User_Info us_inf;
+Device_info dev_inf;
+
 
 
 
@@ -839,11 +1069,11 @@ void check()
 		}
 		else if (User_Info_Status)
 		{
-		//	.refresh();
+		us_inf.close();
 		}
 		else if (Device_Info_Status)
 		{
-		//	.refresh();
+		dev_inf.close();
 		}
 		else if (User_Add_Status)
 		{
@@ -885,11 +1115,11 @@ void check()
 		}
 		else if (User_Info_Status)
 		{
-			//	.refresh();
+			us_inf.close();
 		}
 		else if (Device_Info_Status)
 		{
-			//	.refresh();
+			dev_inf.close();
 		}
 		else if (User_Add_Status)
 		{
@@ -939,11 +1169,11 @@ void check()
 		}
 		else if (User_Info_Status)
 		{
-			//	.refresh();
+			us_inf.close();
 		}
 		else if (Device_Info_Status)
 		{
-			//	.refresh();
+			dev_inf.close();
 		}
 		else if (User_Add_Status)
 		{
@@ -995,11 +1225,11 @@ void check()
 		}
 		else if (User_Info_Status)
 		{
-			//	.refresh();
+			us_inf.close();
 		}
 		else if (Device_Info_Status)
 		{
-			//	.refresh();
+			dev_inf.close();
 		}
 		else if (User_Add_Status)
 		{
@@ -1044,11 +1274,11 @@ void check()
 	}
 	else if (User_Info_Status)
 	{
-		//	.refresh();
+		us_inf.close();
 	}
 	else if (Device_Info_Status)
 	{
-		//	.refresh();
+		dev_inf.close();
 	}
 	else if (User_Add_Status)
 	{
@@ -1101,11 +1331,11 @@ void check()
 		}
 		else if (User_Info_Status)
 		{
-			//	.refresh();
+			us_inf.close();
 		}
 		else if (Device_Info_Status)
 		{
-			//	.refresh();
+			dev_inf.close();
 		}
 		else if (User_Add_Status)
 		{
@@ -1372,11 +1602,11 @@ sei();
 		}
 		else if (User_Info_Status)
 		{
-		//	.refresh();
+			us_inf.refresh();
 		}
 		else if (Device_Info_Status)
 		{
-		//	.refresh();
+			dev_inf.refresh();
 		}
 		else if (User_Add_Status)
 		{
@@ -1398,5 +1628,6 @@ sei();
 		batary.refresh();
 		oled.OLED_Write_To_Bufer(80,0,2,8,Net3);
 		oled.OLED_Write_Bufer();
+		_delay_ms(1000);
 	}
 }
