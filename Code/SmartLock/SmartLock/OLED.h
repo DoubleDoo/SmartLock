@@ -18,7 +18,7 @@ class OLED
 	uint8_t  oled_bufer[(OLED_HEIGHT/8)*OLED_WIDTH];
 	TWI wire;
 	public:
-	OLED(TWI _wire);
+	OLED(TWI _wire,uint8_t light);
 	void OLED_Command(int command);
 	void OLED_Data(int data);
 	void OLED_Write_Bufer();

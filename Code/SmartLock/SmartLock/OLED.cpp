@@ -1,6 +1,6 @@
 #include "OLED.h"
 
-	OLED::OLED(TWI _wire)
+	OLED::OLED(TWI _wire,uint8_t light)
 	{
 		wire=_wire;
 		wire.twi_Init();
@@ -20,7 +20,7 @@
 		OLED_Command(0x12);
 
 		OLED_Command(0x81);
-		OLED_Command(0xFF);
+		OLED_Command(light);
 		OLED_Command(0xA4);
 
 		OLED_Command(0xA6);
