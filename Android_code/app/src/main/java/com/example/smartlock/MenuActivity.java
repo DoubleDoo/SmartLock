@@ -47,16 +47,19 @@ public class MenuActivity extends AppCompatActivity {
     }
 
 
-    public void switchlock(android.view.View view) {
+    public void unlock(android.view.View view) {
+        SharedPreferences myPreferences = PreferenceManager.getDefaultSharedPreferences(MenuActivity.this);
         startService(new Intent(this,SMSService.class));
-        Toast.makeText(getApplicationContext(), "just a toast", Toast.LENGTH_LONG).show();
-        long mills = 1000L;
-        Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-        if (vibrator.hasVibrator()) {
-            vibrator.vibrate(mills);
-        }
+        Toast.makeText(getApplicationContext(), "unlocked", Toast.LENGTH_LONG).show();
+        sendSMS(myPreferences.getString("DNUMBER", ""), "unlock");
     }
 
+    public void lock(android.view.View view) {
+        SharedPreferences myPreferences = PreferenceManager.getDefaultSharedPreferences(MenuActivity.this);
+        startService(new Intent(this,SMSService.class));
+        Toast.makeText(getApplicationContext(), "locked", Toast.LENGTH_LONG).show();
+        sendSMS(myPreferences.getString("DNUMBER", ""), "lock");
+    }
 
     public void opensettings(android.view.View view) {
         Intent intent = new Intent(MenuActivity.this, SettingsActivity.class);
